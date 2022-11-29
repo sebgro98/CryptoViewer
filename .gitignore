@@ -7,13 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-.DS_Store
+**/node_modules
+**/*~
 dist
-dist-ssr
-coverage
-*.local
+package-lock.json
+**/*solved*
 **/*Config.js*
+!telemetry.config.json
+/public/*.js
+/public/*.html
 
 /cypress/videos/
 /cypress/screenshots/
@@ -27,4 +29,5 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
 
