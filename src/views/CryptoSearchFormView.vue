@@ -35,9 +35,6 @@ export default {
   </div>
 </template>
 
-<template2>
-
-</template2>
 <style>
 .nav {
   background-color: #16d545;
@@ -64,7 +61,7 @@ input{
 
 .user-cryptos{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1300px));
+  grid-template-columns: 1fr;
   gap: .25rem;
   margin-top: 1rem;
 }
