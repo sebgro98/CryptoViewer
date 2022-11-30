@@ -1,27 +1,64 @@
+
+
+<template>
+  <ul>
+    <li id="menuName">CryptoViewer</li>
+    <li><RouterLink to="/MostPopularCrypto">Home</RouterLink></li>
+    <li><RouterLink to="/UserSearchForm">Find Users</RouterLink></li>
+    <li id="SecondLastChild"><RouterLink to="/SignInForm">Sign in</RouterLink></li>
+    <li id="lastChild"><RouterLink to="/SignUpForm">Sign up</RouterLink></li>
+    <li hidden id="SecondLastChild"><RouterLink to="/Profile">Profile</RouterLink></li>
+    <li hidden id="lastChild"><RouterLink to="/Logout">Logout</RouterLink></li>
+  </ul>
+</template>
+
 <script setup>
 import { RouterLink} from 'vue-router'
 </script>
 
-<template>
-  <div class="nav">
-    <p>CryptoViewer</p>
-    <RouterLink to="/MostPopularCrypto">Home</RouterLink>
-    <RouterLink to="/UserSearchForm">Find Users</RouterLink>
-    <RouterLink to="/SignInForm">Sign in</RouterLink>
-    <RouterLink to="/SignUpForm">Sign up</RouterLink>
-  </div>
-</template>
-
 <style>
-.nav {
-  background-color: #26c545;
+#lastChild {
+  position: absolute;
+  right: 20px;
 }
-.nav a {
-  float: left;
-  color: black;
+
+#SecondLastChild {
+  position: absolute;
+  right: 100px;
+}
+
+#menuName {
+  color: white;
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  background-color: #001687;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+ul li a {
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+}
+
+ul a:hover {
+  background-color: #8eb3dc;
+}
+
+ul li {
+  list-style-type: none;
+  padding-left: 10px;
 }
 </style>
