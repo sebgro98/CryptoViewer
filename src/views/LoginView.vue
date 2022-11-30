@@ -1,6 +1,6 @@
 <template>
-  <div class="Home">
-    <h1>This is where you would see a number of the most popular cryptos</h1>
+  <div class="login">
+    <h1>This is where you would login</h1>
   </div>
 </template>
 
@@ -13,7 +13,3 @@
   }
 }
 </style>
-<script>export default {
-  components: {}
-}
-</script>

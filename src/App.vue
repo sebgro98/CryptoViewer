@@ -1,10 +1,13 @@
 <script setup>
+import Menu from './views/MenuView.vue'
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
 <template>
-  <RouterView />
+  <tr><Menu></Menu></tr>
+  <RouterView/>
+
+
 </template>
 
 <style scoped>

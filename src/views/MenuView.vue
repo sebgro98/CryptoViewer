@@ -3,12 +3,12 @@
 <template>
   <ul>
     <li id="menuName">CryptoViewer</li>
-    <li><RouterLink to="/MostPopularCrypto">Home</RouterLink></li>
-    <li><RouterLink to="/UserSearchForm">Find Users</RouterLink></li>
-    <li id="SecondLastChild"><RouterLink to="/SignInForm">Sign in</RouterLink></li>
-    <li id="lastChild"><RouterLink to="/SignUpForm">Sign up</RouterLink></li>
+    <li><RouterLink to="/home">Home</RouterLink></li>
+    <li><RouterLink to="/findUsers">Find Users</RouterLink></li>
+    <li id="SecondLastChild"><RouterLink to="/login">login</RouterLink></li>
+    <li id="lastChild"><RouterLink to="/signUp">Sign up</RouterLink></li>
     <li hidden id="SecondLastChild"><RouterLink to="/Profile">Profile</RouterLink></li>
-    <li hidden id="lastChild"><RouterLink to="/Logout">Logout</RouterLink></li>
+    <li hidden id="lastChild"><RouterLink to="/logout">Logout</RouterLink></li>
   </ul>
 </template>
 
