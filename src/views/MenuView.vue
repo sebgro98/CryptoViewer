@@ -5,6 +5,7 @@
     <li id="menuName">CryptoViewer</li>
     <li><RouterLink to="/home">Home</RouterLink></li>
     <li><RouterLink to="/findUsers">Find Users</RouterLink></li>
+    <li><RouterLink to="/searchResults">search</RouterLink></li>
     <li id="SecondLastChild"><RouterLink to="/login">login</RouterLink></li>
     <li id="lastChild"><RouterLink to="/signUp">Sign up</RouterLink></li>
     <li hidden id="SecondLastChild"><RouterLink to="/Profile">Profile</RouterLink></li>
