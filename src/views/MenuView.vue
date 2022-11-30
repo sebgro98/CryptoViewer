@@ -1,20 +1,29 @@
-
-
 <template>
   <ul>
     <li id="menuName">CryptoViewer</li>
     <li><RouterLink to="/home">Home</RouterLink></li>
     <li><RouterLink to="/findUsers">Find Users</RouterLink></li>
-    <li><RouterLink to="/searchResults">search</RouterLink></li>
-    <li id="SecondLastChild"><RouterLink to="/login">login</RouterLink></li>
-    <li id="lastChild"><RouterLink to="/signUp">Sign up</RouterLink></li>
-    <li hidden id="SecondLastChild"><RouterLink to="/Profile">Profile</RouterLink></li>
-    <li hidden id="lastChild"><RouterLink to="/logout">Logout</RouterLink></li>
+    <!--WE WANT TO CALL printCorrectMenu here!-->
   </ul>
 </template>
 
-<script setup>
-import { RouterLink} from 'vue-router'
+<script>
+const logged_in = true;
+export default {
+  methods: {
+    printCorrectMenu() {
+      let newNode = document.createElement('p');
+      if (logged_in) {
+        let html ='<li id="SecondLastChild"><RouterLink to="/Profile">Profile</RouterLink></li><li id="lastChild"><RouterLink to="/Logout">Logout</RouterLink></li>';
+        newNode.appendChild(document.createTextNode(html));
+      }
+      else {
+        let html ='<li id="SecondLastChild"><RouterLink to="/SignInForm">Sign in</RouterLink></li><li id="lastChild"><RouterLink to="/SignUpForm">Sign up</RouterLink></li>';
+        newNode.appendChild(document.createTextNode(html));
+      }
+    }
+  }
+}
 </script>
 
 <style>
