@@ -4,13 +4,14 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <tr><Menu></Menu></tr>
+  <Menu></Menu>
   <RouterView/>
 
 
 </template>
 
 <style scoped>
+
 header {
   line-height: 1.5;
   max-height: 100vh;
