@@ -3,6 +3,8 @@
     <li id="menuName">CryptoViewer</li>
     <li><RouterLink to="/home">Home</RouterLink></li>
     <li><RouterLink to="/findUsers">Find Users</RouterLink></li>
+    <li><RouterLink to="/login">Login</RouterLink></li>
+    <li><RouterLink to="/logout">logout</RouterLink></li>
     <!--WE WANT TO CALL printCorrectMenu here!-->
   </ul>
 </template>
