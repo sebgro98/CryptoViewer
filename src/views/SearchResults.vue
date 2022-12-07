@@ -1,6 +1,7 @@
 
+
 <script>
-import { RouterLink} from 'vue-router'
+
 export default {
   name: "SearchResults"
 }
@@ -8,31 +9,16 @@ export default {
 
 <template>
   <div class="search-wrapper">
-    <label for="search" id="search"></label>
+    <label for="search">Search Users</label>
     <input type="search" id="search">
   </div>
-  <div class="user-cryptos">
-    <div class="crypto">
-      <div class="header">CryptoName</div>
-      <div class="body">Other</div>
-    </div>
-    <div class="crypto">
-      <div class="header">CryptoName</div>
-      <div class="body">Other</div>
-    </div>
-    <div class="crypto">
-      <div class="header">CryptoName</div>
-      <div class="body">Other</div>
-    </div>
-    <div class="crypto">
-      <div class="header">CryptoName</div>
-      <div class="body">Other</div>
-    </div>
-    <div class="crypto">
-      <div class="header">CryptoName</div>
-      <div class="body">Other</div>
-    </div>
+  <div class="user-cards" data-user-cards-container></div>
+  <template data-user-template>
+    <div class="card">
+    <div class="header" data-header></div>
+    <div class="body" data-body></div>
   </div>
+  </template>
 </template>
 
 <style>
@@ -59,14 +45,14 @@ input{
   font-size: 1rem;
 }
 
-.user-cryptos{
+.user-cards{
   display: grid;
   grid-template-columns: 1fr;
   gap: .25rem;
   margin-top: 1rem;
 }
 
-.crypto{
+.card{
   border: 1px solid black;
   background-color: grey;
   padding: .5rem;

@@ -5,6 +5,7 @@
     <h1>This is where you would see a number of the most popular cryptos</h1>
 
     <h1 id="stock-price" src ="cryptoSource.js">---</h1>
+    <h1></h1>
 
   </div>
 </template>
