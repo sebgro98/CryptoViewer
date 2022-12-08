@@ -1,4 +1,3 @@
-
 <script>
 import { RouterLink} from 'vue-router'
 export default {
@@ -47,40 +46,32 @@ export default {
   text-decoration: none;
   font-size: 17px;
 }
-
 .search-wrapper {
   display: flex;
   flex-direction: column;
   gap: .25rem;
-
 }
-
 input{
   font-size: 1rem;
 }
-
 .user-cryptos{
   display: grid;
   grid-template-columns: 1fr;
   gap: .25rem;
   margin-top: 1rem;
 }
-
 .crypto{
   border: 1px solid black;
   background-color: grey;
   padding: .5rem;
 }
-
 .card > .header{
   margin-bottom: .25rem;
 }
-
 .card > .body {
   font-size: .8rem;
   color: black;
 }
-
 .hide{
   display: none;
 }

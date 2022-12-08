@@ -1,12 +1,12 @@
 <script setup>
 import Menu from './views/MenuView.vue'
 import { RouterLink, RouterView } from 'vue-router'
+
 </script>
 
 <template>
   <Menu></Menu>
   <RouterView/>
-
 </template>
 
 <style scoped>

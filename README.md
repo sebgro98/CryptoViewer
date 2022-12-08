@@ -4,7 +4,7 @@ The User Group we are targeting are people who want to get into the crypto marke
 
 This template should help get you started developing with Vue 3 in Vite.
 # what we have done
-We have setup the basic framework code (e.g. the skeleton), we have done all the views ie the initial layout of our app. We are pretty much done with the design and we just need to add the datas from the api. We have tried to fetch the api and we are able to get the data from the api when we run it in sperate test files but we need 
+We have setup the basic framework code (e.g. the skeleton), we have done all the views ie the initial layout of our app. We are pretty much done with the design and we just need to add the datas from the api. We have tried to fetch the api and we are able to get the data from the api in the console and when updating the code while in localhost but we need to further
 integrate that to our project. We also have deployed our website in firebase: https://cryptoviewer-3d8b5.web.app/home
 https://cryptoviewer-3d8b5.firebaseapp.com/home. 
 

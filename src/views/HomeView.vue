@@ -4,7 +4,8 @@
       <SearchResults></SearchResults>
     <h1>This is where you would see a number of the most popular cryptos</h1>
 
-      <h1><testCrp></testCrp></h1>
+    <h1 id="stock-price" src ="cryptoSource.js">---</h1>
+    <h1></h1>
 
   </div>
 </template>
@@ -21,9 +22,9 @@
 
 
 <script>
-import testCrp from '../cryptoSource';
 import SearchResults from './SearchResults.vue';
+import CryptoSource from '../cryptoSource.js'
 export default {
-  components: {SearchResults, testCrp}
+  components: {SearchResults}
 }
 </script>
