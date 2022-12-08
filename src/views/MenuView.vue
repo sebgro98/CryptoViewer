@@ -3,41 +3,29 @@
     <li id="menuName">CryptoViewer</li>
     <li><RouterLink to="/home">Home</RouterLink></li>
     <li><RouterLink to="/findUsers">Find Users</RouterLink></li>
-    <li><RouterLink to="/login">Login</RouterLink></li>
-    <li><RouterLink to="/logout">logout</RouterLink></li>
+    <li v-if="!logged_in"><RouterLink to="/login">Login</RouterLink></li>
+    <li v-if="!logged_in"><RouterLink to="/signup">Sign up</RouterLink></li>
+    <li v-if="logged_in"><RouterLink to="/profile">Profile</RouterLink></li>
+    <li v-if="logged_in"><RouterLink to="/logout">Logout</RouterLink></li>
+
     <!--WE WANT TO CALL printCorrectMenu here!-->
   </ul>
 </template>
 
 <script>
-const logged_in = true;
 export default {
-  methods: {
-    printCorrectMenu() {
-      let newNode = document.createElement('p');
-      if (logged_in) {
-        let html ='<li id="SecondLastChild"><RouterLink to="/Profile">Profile</RouterLink></li><li id="lastChild"><RouterLink to="/Logout">Logout</RouterLink></li>';
-        newNode.appendChild(document.createTextNode(html));
-      }
-      else {
-        let html ='<li id="SecondLastChild"><RouterLink to="/SignInForm">Sign in</RouterLink></li><li id="lastChild"><RouterLink to="/SignUpForm">Sign up</RouterLink></li>';
-        newNode.appendChild(document.createTextNode(html));
-      }
+  data() {
+    return {
+      logged_in: true
     }
+  },
+  methods: {
+
   }
 }
 </script>
 
 <style>
-#lastChild {
-  position: absolute;
-  right: 20px;
-}
-
-#SecondLastChild {
-  position: absolute;
-  right: 100px;
-}
 
 #menuName {
   color: white;
