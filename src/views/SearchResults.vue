@@ -6,6 +6,7 @@ export default {
 </script>
 
 <template>
+
   <div class="search-wrapper">
     <label for="search" id="search"></label>
     <input type="search" id="search">

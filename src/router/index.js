@@ -10,6 +10,14 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+    {
+      path: '/profile',
+      name: 'profile',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ProfileView.vue')
+    },
 
     {
       path: '/findUsers',
@@ -50,6 +58,15 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/SignUpView.vue')
+    },
+
+    {
+      path: '/test',
+      name: 'test',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ShowCrypto.vue')
     },
 
   ]

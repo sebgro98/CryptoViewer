@@ -1,13 +1,7 @@
 <template>
   <div class="Home">
-
-      <SearchResults></SearchResults>
-    <h1>This is where you would see a number of the most popular cryptos</h1>
-
-    <h1 id="stock-price" src ="cryptoSource.js">---</h1>
-    <h1></h1>
-
-  </div>
+    <showCrypto></showCrypto>
+   </div>
 </template>
 
 <style>
@@ -22,9 +16,11 @@
 
 
 <script>
-import SearchResults from './SearchResults.vue';
-import CryptoSource from '../cryptoSource.js'
+
+import showCrypto from './ShowCrypto.vue';
 export default {
-  components: {SearchResults}
+  components: {showCrypto},
+
+
 }
 </script>
