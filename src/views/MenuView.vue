@@ -56,7 +56,7 @@ ul li a {
 }
 
 ul a:hover {
-  background: #0040a1;
+  background: #490049;
 
 }
 
