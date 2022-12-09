@@ -1,6 +1,7 @@
 <template>
   <ul>
     <li id="menuName">CryptoViewer</li>
+
     <li><RouterLink to="/home">Home</RouterLink></li>
     <li><RouterLink to="/findUsers">Find Users</RouterLink></li>
     <li v-if="!logged_in"><RouterLink to="/login">Login</RouterLink></li>
@@ -38,15 +39,16 @@ body {
 }
 
 ul {
-  background-color: #001687;
-  height: 50px;
+  background-color: #000000;
+  height: 80px;
   display: flex;
   align-items: center;
   padding: 0;
   margin: 0;
+  opacity: 0.7;
 }
 ul li a {
-  color: white;
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -54,7 +56,8 @@ ul li a {
 }
 
 ul a:hover {
-  background-color: #8eb3dc;
+  background: #490049;
+
 }
 
 ul li {

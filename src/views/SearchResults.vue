@@ -7,10 +7,14 @@ export default {
 
 <template>
 
+  <section class="search-section">
   <div class="search-wrapper">
     <label for="search" id="search"></label>
     <input type="search" id="search">
   </div>
+  </section>
+
+
   <div class="user-cryptos">
     <div class="crypto">
       <div class="header">CryptoName</div>
@@ -39,6 +43,28 @@ export default {
 .nav {
   background-color: #16d545;
 }
+.search-section{
+  background:linear-gradient(45deg, #570057, #2b0079);
+  background-size:cover;
+  height: 80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.search-wrapper {
+  width: 40%;
+}
+input{
+  background:#fff;
+  padding:10px;
+  width:100%;
+  border-radius:5px;
+  font-size:1.2em;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+
 .nav a {
   float: left;
   color: black;
@@ -47,11 +73,7 @@ export default {
   text-decoration: none;
   font-size: 17px;
 }
-.search-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: .25rem;
-}
+
 input{
   font-size: 1rem;
 }
