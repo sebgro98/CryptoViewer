@@ -142,21 +142,17 @@ export default {
 .green{
   color: #11d811;
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Monserrat', sans-serif;
-  background-color: #1a1a1c;
-  color: #fff;
-}
 
 .crypto-app{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 64px;
+  padding-top: 64px;
   color: #fff;
+  background-color: #1a1a1c;
+  font-family: 'Monserrat', sans-serif;
+  min-height: calc(100vh - 194px);
+  padding-bottom: 50px;
 }
 
 .crypto-search{
