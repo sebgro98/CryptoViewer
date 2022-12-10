@@ -1,13 +1,15 @@
 <template>
   <div class='crypto-app'>
-    <div class='crypto-search'>
-      <h1 class='crypto-text'> Search a currency</h1>
+    <div className='crypto-search'>
+      <h1 className='crypto-text'> Search a currency</h1>
       <form>
         <input
             type='text'
             placeholder='Search'
-            class='crypto-input'
-            onChange={handleChange}/>
+            className='crypto-input'
+            @keyup="searchCoin()"
+            v-model="textSearch"
+        />
       </form>
     </div>
     <tr v-for="crypto in clone" :key="crypto.name">
@@ -44,9 +46,13 @@ export default {
   name: "showCrypto",
 
   setup() {
+   let textSearch = ''
+    function searchCoin() {
+      this.clone = this.clone.filter(crypto => crypto.name.toLowerCase().includes(this.textSearch.toLowerCase()))
+    }
+
     const cryptos = ref([])
     const clone = ref([])
-    const search =ref("")
 //api call
     const getCrypto = async () => {
       try {
@@ -65,11 +71,8 @@ export default {
       const dup = cryptos.value.slice(0,100);
       clone.value = dup;
     })
-    // not working
-    const handleChange = e => {
-      search(e.target.value)
-    }
-    return {clone};
+
+    return {clone,searchCoin, textSearch};
   }
 }
 </script>

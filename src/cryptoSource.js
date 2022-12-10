@@ -1,8 +1,10 @@
 import axios from "axios";
 import {ref, watchEffect} from "vue";
 
-const cryptos = ref([])
-const clone = ref([])
+
+let cryptos = ref([])
+let clone = ref([])
+
 //api call
 const getCrypto = async () => {
     try {
@@ -15,10 +17,12 @@ const getCrypto = async () => {
 //fetch timer do not overextend our limit
 setInterval(() => {
     getCrypto();
-}, 3000);
+}, 8000);
 
 watchEffect(() => {
     const dup = cryptos.value.slice(0,100);
     clone.value = dup;
 })
+
+
 export {clone}

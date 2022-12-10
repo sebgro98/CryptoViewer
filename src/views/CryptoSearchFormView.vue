@@ -1,5 +1,17 @@
 <template>
   <div class='crypto-app'>
+    <div className='crypto-search'>
+      <h1 className='crypto-text'> Search a currency</h1>
+      <form>
+        <input
+            type='text'
+            placeholder='Search'
+            className='crypto-input'
+            @keyup="searchCoin()"
+            v-model="textSearch"
+        />
+      </form>
+    </div>
     <tr v-for="crypto in clone" :key="crypto.name">
       <div class='crypto-container'>
         <div class="crypto-row">
@@ -27,12 +39,19 @@
 <script>
 export default {
   name: "CryptoSearchFormView",
+  data() {
+    return {
+      textSearch: ''
+    }
+  },
   props: {
-    clone: Object
+    clone: Object,
   },
   methods: {
-
+    searchCoin() {
+      this.$emit("search-crypto")
     }
+  }
   }
 </script>
 
