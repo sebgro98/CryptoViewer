@@ -37,8 +37,10 @@
 </template>
 
 <script>
+
 export default {
   name: "CryptoSearchFormView",
+
   data() {
     return {
       textSearch: ''

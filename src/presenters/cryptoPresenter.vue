@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import cryptoView from '../views/CryptoSearchFormView.vue';
 import {clone} from "@/cryptoSource";
 export default {
@@ -23,8 +24,12 @@ export default {
 
   methods: {
     searchCrypto() {
-      this.take = clone
-  this.take = this.take.filter(crypto => crypto.name.toLowerCase().includes(this.textSearch.toLowerCase()))
+      let myTarget = JSON.parse(JSON.stringify(clone))
+      this.copy = [];
+      myTarget._rawValue.forEach((items) => {
+        this.copy.push(items)
+      })
+      this.copy = this.copy.filter(crypto => crypto.name.toLowerCase().includes(this.textSearch.toLowerCase()))
 }
   }
 }

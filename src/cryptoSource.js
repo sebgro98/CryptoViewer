@@ -4,7 +4,6 @@ import {ref, watchEffect} from "vue";
 
 let cryptos = ref([])
 let clone = ref([])
-
 //api call
 const getCrypto = async () => {
     try {
