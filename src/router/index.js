@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: () => import('../views/HomeView.vue')
+      component: () => import('../presenters/cryptoPresenter.vue')
     },
     {
       path: '/profile',
@@ -21,7 +21,7 @@ const router = createRouter({
     {
       path: '/findUsers',
       name: 'CryptoSearchFormView',
-      component: () => import('../views/CryptoSearchFormView.vue')
+      component: () => import('../presenters/UserPresenter.vue')
     },
     {
       path: '/searchResults',

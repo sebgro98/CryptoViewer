@@ -1,39 +1,35 @@
 <template>
-  <homeView
-      :name="name"
-      :image="image"
-      :symbol="symbol"
-      :marketCap="marketCap"
-      :price="price"
-      :priceChange="priceChange"
-      :volume="volume"
-  ></homeView>
+  <cryptoView
+      :apiData="apiData"
+      @display-apiData="displayData"
+  />
 </template>
 
 <script>
-import homeView from "@/views/HomeView.vue";
-
+import cryptoView from '../views/CryptoSearchFormView.vue';
+import resolvePromise from "@/resolvePromise";
+import {searchCryptos} from "@/cryptoSource";
 export default {
-  name: "cryptoPresenter",
-  components: {
-    homeView,
-  },
+  name: "tempCryptoPresenter",
+  components: {cryptoView},
   data() {
-    crypto._rawValue.map(crypto =>{
     return {
-      key: crypto._rawValue.id,
-      name: crypto._rawValue.name,
-      image: crypto._rawValue.image,
-      symbol: crypto._rawValue.symbol,
-      marketCap: crypto._rawValue.market_cap,
-      price: crypto._rawValue.current_price,
-      priceChange: crypto._rawValue.price_change_percentage_24h,
-      volume: crypto._rawValue.total_volume,
+      promiseState: {},
+      apiData: undefined,
     }
-    })
+  },
+  created() {
+    resolvePromise(searchCryptos(), this.promiseState)
+  },
+  methods: {
+    displayData() {
+      this.apiData = this.promiseState.data;
+      console.log(this.apiData)
+    }
   }
-
-
 }
 </script>
 
+<style>
+
+</style>
