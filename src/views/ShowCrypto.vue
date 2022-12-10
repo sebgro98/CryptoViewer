@@ -23,9 +23,9 @@
               </p>
               <p class="crypto-volume">${{crypto.total_volume}}
               </p>
-              <!-- percent red-->
-              <p class="crypto-percent green">
-                {{crypto.price_change_percentage_24h}}%
+              <!-- percent green-->
+              <p :class="crypto.price_change_percentage_24h > 0 ? 'green' : 'red'">
+                {{crypto.price_change_percentage_24h.toFixed(2)}}%
               </p>
               <p class="crypto-marketCap"> Mkth cap: ${{crypto.market_cap.toLocaleString()}}</p>
             </div>
@@ -39,18 +39,19 @@
 import axios from 'axios'
 import {ref, watchEffect} from "vue";
 
+
 export default {
   name: "showCrypto",
 
   setup() {
-    const crypto = ref([])
+    const cryptos = ref([])
     const clone = ref([])
     const search =ref("")
 //api call
     const getCrypto = async () => {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-        crypto.value = response.data
+        cryptos.value = response.data
       } catch (error) {
         //console.log(error);
       }
@@ -61,7 +62,7 @@ export default {
     }, 3000);
 
     watchEffect(() => {
-      const dup = crypto.value.slice(0,100);
+      const dup = cryptos.value.slice(0,100);
       clone.value = dup;
     })
     // not working

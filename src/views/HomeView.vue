@@ -14,7 +14,6 @@
 }
 </style>
 
-
 <script>
 
 import showCrypto from './ShowCrypto.vue';

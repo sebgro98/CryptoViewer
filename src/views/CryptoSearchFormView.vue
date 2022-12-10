@@ -1,7 +1,6 @@
 <template>
   <div class='crypto-app'>
-    <button @click="display">Display data</button>
-    <tr v-for="crypto in apiData" :key="crypto.name">
+    <tr v-for="crypto in clone" :key="crypto.name">
       <div class='crypto-container'>
         <div class="crypto-row">
           <div class="crypto">
@@ -14,9 +13,8 @@
             </p>
             <p class="crypto-volume">${{crypto.total_volume}}
             </p>
-            <!-- percent red-->
-            <p class="crypto-percent green">
-              {{crypto.price_change_percentage_24h}}%
+            <p :class="crypto.price_change_percentage_24h > 0 ? 'green' : 'red'">
+              {{crypto.price_change_percentage_24h.toFixed(2)}}%
             </p>
             <p class="crypto-marketCap"> Mkth cap: ${{crypto.market_cap.toLocaleString()}}</p>
           </div>
@@ -30,12 +28,10 @@
 export default {
   name: "CryptoSearchFormView",
   props: {
-    apiData: Object
+    clone: Object
   },
   methods: {
-    display() {
-      this.$emit('display-apiData')
-      },
+
     }
   }
 </script>
