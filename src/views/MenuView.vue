@@ -45,7 +45,7 @@ export default {
   padding-top: 20px;
 }
 #menuName:hover{
-  background-color: #2d2d2d;
+  background-color: #5d5d5d;
 }
 
 body {
