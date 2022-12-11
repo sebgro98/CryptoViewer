@@ -21,7 +21,7 @@
 }
 
 body {
-  background: #2c3338;
+  background: #35383b;
   color: #606468;
   margin: 0;
 }

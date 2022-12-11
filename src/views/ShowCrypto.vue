@@ -152,7 +152,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding-top: 64px;
-  color: #fff;
+  color: #d9d9d9;
   background-color: #d0d0d0;;
   font-family: 'Monserrat', sans-serif;
   min-height: calc(100vh - 194px);
