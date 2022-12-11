@@ -4,10 +4,10 @@
 
     <li><RouterLink to="/home">Home</RouterLink></li>
     <li><RouterLink to="/findUsers">Find Users</RouterLink></li>
-    <li v-if="!logged_in"><RouterLink to="/login">Login</RouterLink></li>
-    <li v-if="!logged_in"><RouterLink to="/signup">Sign up</RouterLink></li>
-    <li v-if="logged_in"><RouterLink to="/profile">Profile</RouterLink></li>
-    <li v-if="logged_in"><RouterLink to="/logout">Logout</RouterLink></li>
+    <li v-if="logged_in"><RouterLink to="/login">Login</RouterLink></li>
+    <li v-if="logged_in"><RouterLink to="/signup">Sign up</RouterLink></li>
+    <li v-if="!logged_in"><RouterLink to="/profile">Profile</RouterLink></li>
+    <li v-if="!logged_in"><RouterLink to="/logout">Logout</RouterLink></li>
 
     <!--WE WANT TO CALL printCorrectMenu here!-->
   </ul>
