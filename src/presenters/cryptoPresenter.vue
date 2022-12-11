@@ -1,36 +1,34 @@
 <template>
   <cryptoView
-      :clone="clone"
-      :textSearch="textSearch"
-      @search-crypto="searchCrypto"
+      :apiData="promiseState.data"
+      @OnTextChange="textChangeACB"
+      @onSearch="doSearchACB"
   />
 </template>
-
 <script>
 
 import cryptoView from '../views/CryptoSearchFormView.vue';
-import {clone} from "@/cryptoSource";
+import {searchCryptos} from "@/cryptoSource";
+import resolvePromise from "@/resolvePromise";
 export default {
   name: "tempCryptoPresenter",
   components: {cryptoView},
 
-
   data() {
     return {
-      clone,
-      textSearch: "",
+      promiseState: {},
+      textSearch: undefined,
     }
   },
 
   methods: {
-    searchCrypto() {
-      let myTarget = JSON.parse(JSON.stringify(clone))
-      this.copy = [];
-      myTarget._rawValue.forEach((items) => {
-        this.copy.push(items)
-      })
-      this.copy = this.copy.filter(crypto => crypto.name.toLowerCase().includes(this.textSearch.toLowerCase()))
-}
+    textChangeACB(text) {
+      this.textSearch = text;
+    },
+    doSearchACB() {
+      console.log(this.textSearch)
+      resolvePromise(searchCryptos(this.textSearch), this.promiseState)
+    }
   }
 }
 </script>

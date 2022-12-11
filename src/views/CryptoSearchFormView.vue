@@ -4,35 +4,33 @@
       <h1 className='crypto-text'> Search a currency</h1>
       <form>
         <input
-            type='text'
             placeholder='Search'
             className='crypto-input'
-            @keyup="searchCoin()"
-            v-model="textSearch"
+            @input="setSearchTextACB"
         />
+        <button
+            type="button"
+            @click="setSearchACB">Search</button>
       </form>
+
     </div>
-    <tr v-for="crypto in clone" :key="crypto.name">
-      <div class='crypto-container'>
-        <div class="crypto-row">
-          <div class="crypto">
-            <img :src="crypto.image" alt="crypto"/>
-            <h1>{{crypto.name}}</h1>
-            <p class="crypto-symbol">{{crypto.symbol}}</p>
-          </div>
-          <div class="crypto-data">
-            <p class="crypto-price">${{crypto.current_price}}
-            </p>
-            <p class="crypto-volume">${{crypto.total_volume}}
-            </p>
-            <p :class="crypto.price_change_percentage_24h > 0 ? 'green' : 'red'">
-              {{crypto.price_change_percentage_24h.toFixed(2)}}%
-            </p>
-            <p class="crypto-marketCap"> Mkth cap: ${{crypto.market_cap.toLocaleString()}}</p>
+    <div
+    class="crypto-data"
+    v-if="apiData !== undefined"
+    >
+      <tr v-for="crypto in this.apiData['coins']" :key="crypto.name">
+        <div class='crypto-container'>
+          <div class="crypto-row">
+            <div class="crypto">
+              <img :src="crypto.thumb" alt="crypto"/>
+              <h1>{{crypto.name}}</h1>
+              <p class="crypto-symbol">{{crypto.symbol}}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </tr>
+      </tr>
+    </div>
+
   </div>
 </template>
 
@@ -40,18 +38,18 @@
 
 export default {
   name: "CryptoSearchFormView",
-
-  data() {
-    return {
-      textSearch: ''
-    }
-  },
   props: {
-    clone: Object,
+    apiData: Object,
+  },
+  mounted() {
+    console.log(this.apiData)
   },
   methods: {
-    searchCoin() {
-      this.$emit("search-crypto")
+    setSearchTextACB(evt) {
+      this.$emit("OnTextChange", evt.target.value)
+    },
+    setSearchACB() {
+      this.$emit("onSearch")
     }
   }
   }
@@ -62,6 +60,13 @@ export default {
 div {
   width: 100%;
 }
+
+.crypto-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .crypto-container{
   display: flex;
   justify-content: center;
