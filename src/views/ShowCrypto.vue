@@ -153,7 +153,7 @@ export default {
   align-items: center;
   padding-top: 64px;
   color: #fff;
-  background-color: #1a1a1c;
+  background-color: #d0d0d0;;
   font-family: 'Monserrat', sans-serif;
   min-height: calc(100vh - 194px);
   padding-bottom: 50px;
