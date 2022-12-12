@@ -1,12 +1,12 @@
 <template>
   <div class='crypto-app'>
-    <div className='crypto-search'>
-      <h1 className='crypto-text'> Search a currency</h1>
+    <div class='crypto-search'>
+      <h1 class='crypto-text'> Search a currency</h1>
       <form>
         <input
             type='text'
             placeholder='Search'
-            className='crypto-input'
+            class='crypto-input'
             @keyup="searchCoin()"
             v-model="textSearch"
         />
@@ -153,7 +153,7 @@ export default {
   align-items: center;
   padding-top: 64px;
   color: #d9d9d9;
-  background-color: #d0d0d0;;
+  background-color: #1a1a1c;
   font-family: 'Monserrat', sans-serif;
   min-height: calc(100vh - 194px);
   padding-bottom: 50px;

@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: () => import('../presenters/cryptoPresenter.vue')
+      component: () => import('../views/ShowCrypto.vue')
     },
     {
       path: '/profile',
