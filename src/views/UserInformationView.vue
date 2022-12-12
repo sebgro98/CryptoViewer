@@ -56,7 +56,7 @@ export default {
 
   margin: 10px;
 }
-
+/*test*/
 .left{
   width: 35%;
   padding: 30px 25px;
