@@ -7,7 +7,7 @@
 </template>
 <script>
 
-import homeView from '../views/homeView.vue';
+import homeView from '../views/HomeView.vue';
 import {clone} from "@/cryptoSource";
 export default {
   name: "CryptoPresenter",

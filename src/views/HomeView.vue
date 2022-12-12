@@ -1,16 +1,7 @@
 <template>
   <div class='crypto-app'>
     <div class='crypto-search'>
-      <h1 class='crypto-text'> Search a currency</h1>
-      <form>
-        <input
-            type='text'
-            placeholder='Search'
-            class='crypto-input'
-            @keyup="searchCoin()"
-            v-model="textSearch"
-        />
-      </form>
+      <h1 class='crypto-text'> <RouterLink to="/search">Search a currency</RouterLink></h1>
     </div>
     <tr v-for="crypto in clone" :key="crypto.name">
       <div class='crypto-container'>
@@ -54,6 +45,17 @@ export default {
 </script>
 
 <style>
+
+.to-search{
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+}
+
 .crypto-container{
   display: flex;
   justify-content: center;

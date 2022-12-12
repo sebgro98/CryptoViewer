@@ -1,28 +1,28 @@
 <template>
-  <div class='crypto-app'>
-    <div className='crypto-search'>
-      <h1 className='crypto-text'> Search a currency</h1>
+  <div class='crypto-app1'>
+    <div class='crypto-search1'>
+      <h1 class='crypto-text1'></h1>
       <form
           @submit.prevent="setSearchACB">
         <input
-            @keyup.enter="setSearchTextACB"
+            @input="setSearchTextACB"
             placeholder='Search'
-            className='crypto-input'
+            class='crypto-input1'
 
         />
       </form>
     </div>
     <div
-    class="crypto-data"
-    v-if="apiData !== undefined"
+    class="crypto-data1"
+    v-if="apiData !== undefined && apiData['coins'] !== null"
     >
       <tr v-for="crypto in this.apiData['coins']" :key="crypto.name">
-        <div class='crypto-container'>
-          <div class="crypto-row">
-            <div class="crypto">
-              <img :src="crypto.thumb" alt="crypto"/>
+        <div class='crypto-container1'>
+          <div class="crypto-row1">
+            <div class="crypto1">
+              <img :src="crypto.thumb" alt="crypto1"/>
               <h1>{{crypto.name}}</h1>
-              <p class="crypto-symbol">{{crypto.symbol}}</p>
+              <p class="crypto-symbol1">{{crypto.symbol}}</p>
             </div>
           </div>
         </div>
@@ -37,11 +37,7 @@
 export default {
   name: "CryptoSearchFormView",
   props: {
-    clone: Object,
     apiData: Object,
-  },
-  mounted() {
-    console.log(this.apiData)
   },
   methods: {
     setSearchTextACB(evt) {
@@ -60,18 +56,18 @@ div {
   width: 100%;
 }
 
-.crypto-data {
+.crypto-data1 {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.crypto-container{
+.crypto-container1{
   display: flex;
   justify-content: center;
 }
 
-.crypto-row {
+.crypto-row1 {
   display: flex;
   flex-direction: row;
   justify-items: start;
@@ -81,61 +77,61 @@ div {
   width: 900px;
 }
 
-.crypto {
+.crypto1 {
   display: flex;
   align-items: center;
   padding-right: 24px;
   min-width: 300px;
 
 }
-.crypto h1 {
+.crypto1 h1 {
   font-size: 16px;
   width: 150px;
 }
 
-.crypto img {
+.crypto1 img {
   height: 30px;
   width: 30px;
   margin-right: 10px;
 }
 
-.crypto-symbol {
+.crypto-symbol1 {
   text-transform: uppercase;
 }
 
-.crypto-data {
+.crypto-data1 {
   display: flex;
   text-align: center;
   justify-content: space-between;
   width: 100%;
 }
 
-.crypto-price{
+.crypto-price1{
   width: 110px;
 }
 
-.crypto-volume{
+.crypto-volume1{
   width: 200px;
 
 }
 
-.crypto-marketCap{
+.crypto-marketCap1{
   width: 240px;
 }
 
-.crypto-percent{
+.crypto-percent1{
   width: 80px;
 }
 
-.red{
+.red1{
   color: #f00606;
 }
 
-.green{
+.green1{
   color: #11d811;
 }
 
-.crypto-app{
+.crypto-app1{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,7 +143,7 @@ div {
   padding-bottom: 50px;
 }
 
-.crypto-search{
+.crypto-search1{
   margin-bottom: 64px;
   display: flex;
   flex-direction: column;
@@ -155,12 +151,12 @@ div {
   align-items: center;
 }
 
-.crypto-text{
+.crypto-text1{
   margin-bottom: 32px;
   text-align: center;
 }
 
-.crypto-input{
+.crypto-input1{
   padding-left: 16px;
   width: 300px;
   height: 50px;
@@ -175,7 +171,7 @@ div {
   color: #e2e2e2;
 }
 
-.crypto-input::placeholder {
+.crypto-input1::placeholder {
   color: #e2e2e2;
 }
 </style>
