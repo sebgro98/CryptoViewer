@@ -3,19 +3,11 @@
     <div class="user-profile">
       <div class="left">
         <img src="../assets/logo.svg" alt="Profile Image" class="profile_image">
-        <div class="profile_name">FirstName LastName</div>
+        <div class="profile_name">Username</div>
       </div>
       <div class="right">
         <div class="profile_information">
           <h3>Information</h3>
-          <div class="profile_email">
-            <h4>Email</h4>
-            <p>Email here</p>
-          </div>
-          <div class="profile_description">
-            <h4>Description</h4>
-            <p>Description here</p>
-          </div>
       </div>
       </div>
     </div>
@@ -28,22 +20,21 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 *{
-  margin: 0;
-  padding:0;
-  list-style: none;
-  font-family: sans-serif;
-  box-sizing: border-box;
 }
 
-.main{
-  background: darkgrey;
+body{
+  background: #35383b;
 
 }
 
 .user-profile{
+  padding:0;
+  list-style: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -51,19 +42,21 @@ export default {
   width:90%;
   display: flex;
   box-shadow: 0 1px 20px 0 rgba(70,90,100,0.08);
-  border-radius: 10%;
-  background: darkgrey;
-
+  border-radius: 12px;
+  background: #212121;
   margin: 10px;
+}
+h3{
+  color: white;
 }
 
 .left{
-  width: 35%;
+  width: 21%;
   padding: 30px 25px;
 }
 
 .right{
-  width: 65%;
+  width: 79%;
   padding: 30px 25px;
 }
 
@@ -74,6 +67,8 @@ export default {
 
 .profile_description{
   margin-top: 50px;
+  color: white;
+
 }
 
 .profile_email{
@@ -91,6 +86,9 @@ export default {
 .profile_name{
   font-size: 1.5em;
   font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 10px;
 }
 
 </style>
