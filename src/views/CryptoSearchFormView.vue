@@ -2,17 +2,15 @@
   <div class='crypto-app'>
     <div className='crypto-search'>
       <h1 className='crypto-text'> Search a currency</h1>
-      <form>
+      <form
+          @submit.prevent="setSearchACB">
         <input
+            @keyup.enter="setSearchTextACB"
             placeholder='Search'
             className='crypto-input'
-            @input="setSearchTextACB"
-        />
-        <button
-            type="button"
-            @click="setSearchACB">Search</button>
-      </form>
 
+        />
+      </form>
     </div>
     <div
     class="crypto-data"
@@ -39,6 +37,7 @@
 export default {
   name: "CryptoSearchFormView",
   props: {
+    clone: Object,
     apiData: Object,
   },
   mounted() {
