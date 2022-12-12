@@ -1,28 +1,20 @@
 <template>
-  <div class="menuNav" id="myMenuNav">'
-    <a id="menuName">CryptoViewer </a>
+  <div class="menuNav" id="myMenuNav">
+    <a id="menuName" class="menuResOpenBG">CryptoViewer </a>
     <a><RouterLink to="/home">Home</RouterLink></a>
     <a><RouterLink to="/findUsers">Find Users</RouterLink></a>
     <a v-if="logged_in" ><RouterLink to="/login">Login</RouterLink></a>
     <a v-if="logged_in"><RouterLink to="/signup">Sign up</RouterLink></a>
     <a v-if="!logged_in"><RouterLink to="/profile">Profile</RouterLink></a>
     <a v-if="!logged_in"><RouterLink to="/logout">Logout</RouterLink></a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
+    <a href="javascript:void(0);" class="icon" v-bind:onclick="responsMenuACB">
+      <label for="checkbox_toggle" class="menuCheckBox">&#9776;</label>
     </a>
   </div>
 
 </template>
 
 <script>
-function myFunction() {
-  var x = document.getElementById("myMenuNav");
-  if (x.className === "menuNav") {
-    x.className += " responsive";
-  } else {
-    x.className = "menuNav";
-  }
-}
 
 export default {
 
@@ -32,7 +24,14 @@ export default {
     }
   },
   methods: {
-
+    responsMenuACB() {
+      var x = document.getElementById("myMenuNav");
+      if (x.className === "menuNav") {
+        x.className += " responsive";
+      } else {
+        x.className = "menuNav";
+      }
+    }
   }
 }
 </script>
@@ -73,16 +72,11 @@ body {
   color: black;
 }
 
-.menuNav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
 .menuNav .icon {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .menuNav a:not(:first-child) {display: none;}
   .menuNav a.icon {
     float: right;
@@ -90,8 +84,11 @@ body {
   }
 }
 
-@media screen and (max-width: 600px) {
-  .menuNav.responsive {position: relative;}
+@media screen and (max-width: 650px) {
+  .menuNav.responsive {
+    position: relative;
+  }
+
   .menuNav.responsive .icon {
     position: absolute;
     right: 0;
@@ -101,6 +98,17 @@ body {
     float: none;
     display: block;
     text-align: left;
+  }
+
+  .menuResOpenBG{
+    background-color:#2e2e2e;
+  }
+
+  .menuResOpenBG:hover{
+    background-color:#2e2e2e;
+  }
+  #menuName:hover{
+    background-color:#2e2e2e;
   }
 }
 
