@@ -1,52 +1,68 @@
 <template>
-  <div class='crypto-app'>
-    <div class='crypto-search'>
-      <h1 class='crypto-text'> <RouterLink to="/search">Search a currency</RouterLink></h1>
+  <div class="crypto-app">
+    <div class="crypto-search">
+      <h1 class="crypto-text">
+      </h1>
+      <form>
+        <input
+            type="text"
+            placeholder="Search"
+            class="crypto-input"
+            @input="searchCoin"
+        />
+      </form>
     </div>
-    <tr v-for="crypto in clone" :key="crypto.name">
-      <div class='crypto-container'>
-        <div class="crypto-row">
-          <div class="crypto">
-            <img :src="crypto.image" alt="crypto"/>
-            <h1>{{crypto.name}}</h1>
-            <p class="crypto-symbol">{{crypto.symbol}}</p>
-          </div>
-          <div class="crypto-data">
-            <p class="crypto-price">${{crypto.current_price}}
-            </p>
-            <p class="crypto-volume">${{crypto.total_volume}}
-            </p>
-            <!-- percent green-->
-            <p :class="crypto.price_change_percentage_24h > 0 ? 'green' : 'red'">
-              {{crypto.price_change_percentage_24h.toFixed(2)}}%
-            </p>
-            <p class="crypto-marketCap"> Mkth cap: ${{crypto.market_cap.toLocaleString()}}</p>
+    <!-- Added a condition and something else to display if nothing fits the condition -->
+    <div v-if="clone.length > 0">
+      <tr v-for="crypto in clone" :key="crypto.id">
+        <div class="crypto-container">
+          <div class="crypto-row">
+            <div class="crypto">
+              <img :src="crypto.image" alt="crypto" />
+              <h1>{{ crypto.name }}</h1>
+              <p class="crypto-symbol">{{ crypto.symbol }}</p>
+            </div>
+            <div class="crypto-data">
+              <p class="crypto-price">${{ crypto.current_price }}</p>
+              <p class="crypto-volume">${{ crypto.total_volume }}</p>
+              <!-- percent green-->
+              <p
+                  :class="
+                  crypto.price_change_percentage_24h > 0 ? 'green' : 'red'
+                "
+              >
+                {{ crypto.price_change_percentage_24h.toFixed(2) }}%
+              </p>
+              <p class="crypto-marketCap">
+                Mkth cap: ${{ crypto.market_cap.toLocaleString() }}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </tr>
+      </tr>
+    </div>
+    <div v-else>No matching data, Try to reload the webpage!</div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "HomeView",
   props: {
     clone: Object,
+    textSearch: String,
   },
 
   methods: {
-    searchCoin() {
-      this.$emit("search-crypto")
-    }
-  }
-}
+    searchCoin(e) {
+      this.$emit("search-crypto", e.target.value);
+    },
+  },
+};
 </script>
 
 <style>
-
-.to-search{
+.to-search {
   float: left;
   display: block;
   text-align: center;
@@ -56,7 +72,7 @@ export default {
   font-weight: 500;
 }
 
-.crypto-container{
+.crypto-container {
   display: flex;
   justify-content: center;
 }
@@ -76,7 +92,6 @@ export default {
   align-items: center;
   padding-right: 24px;
   min-width: 300px;
-
 }
 .crypto h1 {
   font-size: 16px;
@@ -100,44 +115,43 @@ export default {
   width: 100%;
 }
 
-.crypto-price{
+.crypto-price {
   width: 110px;
 }
 
-.crypto-volume{
+.crypto-volume {
   width: 200px;
-
 }
 
-.crypto-marketCap{
+.crypto-marketCap {
   width: 240px;
 }
 
-.crypto-percent{
+.crypto-percent {
   width: 80px;
 }
 
-.red{
+.red {
   color: #f00606;
 }
 
-.green{
+.green {
   color: #11d811;
 }
 
-.crypto-app{
+.crypto-app {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 64px;
   color: #fff;
   background-color: #1a1a1c;
-  font-family: 'Monserrat', sans-serif;
+  font-family: "Monserrat", sans-serif;
   min-height: calc(100vh - 194px);
   padding-bottom: 50px;
 }
 
-.crypto-search{
+.crypto-search {
   margin-bottom: 64px;
   display: flex;
   flex-direction: column;
@@ -145,12 +159,12 @@ export default {
   align-items: center;
 }
 
-.crypto-text{
+.crypto-text {
   margin-bottom: 32px;
   text-align: center;
 }
 
-.crypto-input{
+.crypto-input {
   padding-left: 16px;
   width: 300px;
   height: 50px;
@@ -168,5 +182,4 @@ export default {
 .crypto-input::placeholder {
   color: #e2e2e2;
 }
-
 </style>
