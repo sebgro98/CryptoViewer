@@ -7,9 +7,10 @@
 </template>
 <script>
 
-import homeView from '../views/homeView.vue';
+import homeView from '../views/HomeView.vue';
 import {clone} from "@/cryptoSource";
 export default {
+  props: ['model'],
   name: "CryptoPresenter",
   components: {homeView},
 
@@ -17,6 +18,11 @@ export default {
     return {
       clone,
     }
+  },
+
+  created() {
+    this.model.setSearchQuery('test')
+    console.log(this.model.searchQuery)
   },
 
   methods: {

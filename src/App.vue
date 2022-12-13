@@ -1,12 +1,28 @@
 <script setup>
 import Menu from './views/MenuView.vue'
 import { RouterLink, RouterView } from 'vue-router'
+</script>
+
+<script>
+import CryptoModel from "@/CryptoModel";
+
+export default {
+  data() {
+    return {
+      model: {}
+    }
+  },
+
+  created() {
+    this.model = new CryptoModel();
+  }
+}
 
 </script>
 
 <template>
   <Menu></Menu>
-  <RouterView/>
+  <RouterView :model="model"/>
 </template>
 
 <style scoped>

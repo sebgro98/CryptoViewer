@@ -7,7 +7,16 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: () => import('../views/ShowCrypto.vue')
+      component: () => import('../presenters/cryptoPresenter.vue')
+    },
+
+    {
+      path: '/search',
+      name: 'search',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../presenters/cryptoSearchPresenter.vue')
     },
     {
       path: '/profile',
