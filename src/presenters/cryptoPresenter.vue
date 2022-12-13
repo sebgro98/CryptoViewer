@@ -1,5 +1,8 @@
 <template>
-  <homeView :clone="copy" @search-crypto="searchCrypto" />
+  <homeView :clone="copy"
+            @search-crypto="searchCrypto"
+            @onCryptoClick="setCurrentCryptoACB"
+  />
 </template>
 <script>
 import homeView from "../views/HomeView.vue";
@@ -31,7 +34,6 @@ export default {
   },
 
   created() {
-    this.model.setSearchQuery("test");
     // Load the initial value to display all the cryptos at first render :)
     this.copy = this.initial;
   },
@@ -46,6 +48,10 @@ export default {
             crypto.symbol.toLowerCase().includes(this.textSearch.toLowerCase())
         );
       });
+    },
+    setCurrentCryptoACB(id) {
+      this.model.setCurrentCrypto(id);
+      console.log(this.model.currentCrypto)
     },
   },
 };
