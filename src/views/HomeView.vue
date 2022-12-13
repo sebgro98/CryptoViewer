@@ -147,7 +147,7 @@ export default {
   color: #fff;
   background-color: #1a1a1c;
   font-family: "Monserrat", sans-serif;
-  min-height: calc(100vh - 194px);
+  min-height: calc(100vh - 183px);
   padding-bottom: 50px;
 }
 
