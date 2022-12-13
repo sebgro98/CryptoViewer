@@ -1,7 +1,7 @@
 <template>
   <homeView
       :clone="clone"
-      @searchCrypto="searchCrypto"
+      @search-crypto="searchCrypto"
 
   />
 </template>
@@ -17,6 +17,7 @@ export default {
   data() {
     return {
       clone,
+      textSearch: '',
     }
   },
 
@@ -26,14 +27,18 @@ export default {
   },
 
   methods: {
-    searchCrypto() {
+    searchCrypto(text) {
+      this.textSearch = text
       let myTarget = JSON.parse(JSON.stringify(clone))
       this.copy = [];
       myTarget._rawValue.forEach((items) => {
         this.copy.push(items)
       })
-      this.copy = this.copy.filter(crypto => crypto.name.toLowerCase().includes(this.textSearch.toLowerCase()))
+      this.copy = this.copy.filter(crypto =>
+          crypto.name.toLowerCase().includes(this.textSearch.toLowerCase()))
+
     },
+
   }
 }
 </script>

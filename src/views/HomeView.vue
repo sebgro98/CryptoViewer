@@ -2,7 +2,16 @@
   <div class='crypto-app'>
     <div class='crypto-search'>
       <h1 class='crypto-text'> <RouterLink to="/search">Search a currency</RouterLink></h1>
+      <form>
+        <input
+            type='text'
+            placeholder='Search'
+            class='crypto-input'
+            @input="searchCoin"
+        />
+      </form>
     </div>
+    <div>
     <tr v-for="crypto in clone" :key="crypto.name">
       <div class='crypto-container'>
         <div class="crypto-row">
@@ -25,6 +34,7 @@
         </div>
       </div>
     </tr>
+    </div>
   </div>
 </template>
 
@@ -34,6 +44,7 @@ export default {
   name: "HomeView",
   props: {
     clone: Object,
+    textSearch: String,
   },
 
   methods: {

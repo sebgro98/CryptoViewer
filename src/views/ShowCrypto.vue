@@ -7,7 +7,7 @@
             type='text'
             placeholder='Search'
             class='crypto-input'
-            @keyup="searchCoin()"
+            @keyup="searchCoin"
             v-model="textSearch"
         />
       </form>
@@ -62,10 +62,11 @@ export default {
         //console.log(error);
       }
     };
+   getCrypto()
 //fetch timer do not overextend our limit
     setInterval(() => {
       getCrypto();
-    }, 3000);
+    }, 20000);
 
     watchEffect(() => {
       const dup = cryptos.value.slice(0,100);
