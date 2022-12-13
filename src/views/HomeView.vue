@@ -15,7 +15,7 @@
     <!-- Added a condition and something else to display if nothing fits the condition -->
     <div v-if="clone.length > 0">
       <tr v-for="crypto in clone" :key="crypto.id">
-        <div class="crypto-container">
+        <div v-on:click="getCurrentCryptoACB(crypto.id)" class="crypto-container">
           <div class="crypto-row">
             <div class="crypto">
               <img :src="crypto.image" alt="crypto" />
@@ -57,6 +57,9 @@ export default {
     searchCoin(e) {
       this.$emit("search-crypto", e.target.value);
     },
+    getCurrentCryptoACB(id) {
+      this.$emit("onCryptoClick", id);
+    }
   },
 };
 </script>
