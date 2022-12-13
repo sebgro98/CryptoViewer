@@ -9,6 +9,10 @@ class CryptoModel{
        this.currentCryptoPromiseState = {};
    }
 
+    setSearchQuery(query) {
+        this.searchQuery = query;
+    }
+
    setCurrentCrypto(id) {
        if (this.currentCrypto === id || id === undefined) return;
        this.currentCrypto = id;
@@ -17,10 +21,6 @@ class CryptoModel{
 
    doSearch(query) {
        resolvePromise(searchCryptos(query), this.searchResultsPromiseState);
-   }
-
-   setSearchQuery(query) {
-       this.searchQuery = query;
    }
 
 }
