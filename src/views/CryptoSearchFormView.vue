@@ -14,7 +14,7 @@
     </div>
     <div
     class="crypto-data1"
-    v-if="apiData !== undefined && apiData['coins'] !== null"
+    v-if="apiData"
     >
       <tr v-for="crypto in this.apiData['coins']" :key="crypto.name">
         <div class='crypto-container1'>
