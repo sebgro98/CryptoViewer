@@ -14,12 +14,16 @@ export default {
   props: ["model"],
   data() {
     return {
-      password: undefined,
-      username: undefined,
+      password: "",
+      username: "",
     }
   },
   methods: {
     loginToAccount() {
+      if (this.password === "" || this.username === "") {
+        alert("Invalid account details")
+        return;
+      }
       let signupSuccess = this.model.attemptLogin(this.username, this.password)
       if (signupSuccess) {
         //TODO Change to cryptoPresenter
