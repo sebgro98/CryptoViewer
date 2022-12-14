@@ -1,6 +1,6 @@
 <script setup>
-import Menu from './views/MenuView.vue'
-import { RouterLink, RouterView } from 'vue-router'
+import Menu from './presenters/menuPresenter.vue'
+import {RouterView} from 'vue-router'
 </script>
 
 <script>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <template>
-  <Menu></Menu>
+  <Menu :model="model"/>
   <RouterView :model="model"/>
 </template>
 

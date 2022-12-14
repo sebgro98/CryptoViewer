@@ -1,17 +1,33 @@
 class CryptoModel{
    constructor() {
        this.accounts = {};
-       this.searchResultsPromiseState = {};
-       this.searchQuery = {};
-       this.currentCryptoPromiseState = {};
+       this.currentCrypto = undefined;
+       this.currentLoggedInUser = undefined;
+       this.currentUser = undefined;
    }
-
-    setSearchQuery(query) {
-        this.searchQuery = query;
-    }
 
    setCurrentCrypto(id) {
        this.currentCrypto = id;
+   }
+   setCurrentUser(username) {
+       this.currentUser = username;
+   }
+
+   createAccount(username, password) {
+       if (this.accounts[username]) return false;
+       this.accounts[username] = {password}
+       return true;
+   }
+
+   attemptLogin(username, password) {
+       if (this.accounts[username] && this.accounts[username]['password'] === password) {
+           this.currentLoggedInUser = username;
+           return true;
+       }
+       return false;
+   }
+   logout() {
+       this.currentLoggedInUser = undefined;
    }
 }
 

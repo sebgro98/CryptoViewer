@@ -1,15 +1,34 @@
 <template>
   <div class="login">
     <h2>Register</h2>
-    <form>
+    <form v-on:submit.prevent>
       <label for="Username">Username</label><br>
-      <input type="text" id="Username" required> <br>
+      <input v-on:input="setUsernameInput" placeholder="Username" type="text" id="Username"> <br>
       <label for="Password">Password</label><br>
-      <input type="password" id="Password" required>
-      <button class="login_button">Register</button>
+      <input v-on:input="setPasswordInput" placeholder="Password" type="password" id="Password">
+      <p>OBS: We have access to passwords, use a password that is not important for you</p>
+      <button @click="setAccountDetails" class="login_button">Register</button>
     </form>
   </div>
 </template>
+
+<script>
+export default{
+  name: "SignUpView",
+  methods: {
+    setPasswordInput(evt) {
+      this.$emit("onPasswordUpdate", evt.target.value)
+    },
+    setUsernameInput(evt) {
+      this.$emit("onUsernameUpdate", evt.target.value)
+    },
+    setAccountDetails() {
+      this.$emit("onButtonClick");
+    }
+  }
+}
+
+</script>
 
 <style>
 @media (min-width: 1024px) {
