@@ -8,15 +8,16 @@
             @input="setSearchTextACB"
             placeholder='Search'
             class='crypto-input1'
+
         />
       </form>
     </div>
     <div
-    class="crypto-data1"
-    v-if="apiData"
+        class="crypto-data1"
+        v-if="apiData"
     >
       <tr v-for="crypto in this.apiData['coins']" :key="crypto.name">
-        <div v-on:click="setCurrentCryptoACB(crypto.id)" class='crypto-container1'>
+        <div class='crypto-container1'>
           <div class="crypto-row1">
             <div class="crypto1">
               <img :src="crypto.thumb" alt="crypto1"/>
@@ -44,12 +45,9 @@ export default {
     },
     setSearchACB() {
       this.$emit("onSearch")
-    },
-    setCurrentCryptoACB(id) {
-      this.$emit("onCryptoClick", id)
-    },
+    }
   }
-  }
+}
 </script>
 
 <style>
@@ -141,7 +139,7 @@ div {
   color: #fff;
   background-color: #1a1a1c;
   font-family: 'Monserrat', sans-serif;
-  min-height: calc(100vh - 183px);
+  min-height: calc(100vh - 194px);
   padding-bottom: 50px;
 }
 
