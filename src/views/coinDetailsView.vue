@@ -1,8 +1,9 @@
 <script>
-
-import { RouterLink} from 'vue-router'
 export default {
-  name: "SearchResults"
+  name: "coinDetails",
+  props: {
+    coinData: Object,
+  }
 }
 </script>
 
@@ -18,7 +19,7 @@ export default {
 
   <div class="user-cryptos">
     <div class="crypto">
-      <div class="header">CryptoName</div>
+      <div class="header">fd</div>
       <div class="body">Other</div>
     </div>
     <div class="crypto">

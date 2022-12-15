@@ -59,6 +59,8 @@ export default {
     },
     getCurrentCryptoACB(id) {
       this.$emit("onCryptoClick", id);
+      this.$emit("searchCurrentCrypto");
+      this.$router.push({path: '/details'})
     }
   },
 };

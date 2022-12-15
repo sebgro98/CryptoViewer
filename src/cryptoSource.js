@@ -32,8 +32,18 @@ function treatHTTPResponseACB(response) {
         throw new Error("API Response Time: " + response.status);
     }
     else {
-        return response.data;
+        return response.json();
     }
 }
 
-export {searchCryptos,clone}
+
+const BASE_URL = "https://api.coingecko.com/api/v3/coins/";
+
+function myAPICall(){
+    return axios.get("https://api.coingecko.com/api/v3/coins/" + "bitcoin").then(treatHTTPResponseACB);
+}
+
+
+
+
+export {searchCryptos,clone, myAPICall}
