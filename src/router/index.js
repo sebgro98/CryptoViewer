@@ -33,9 +33,9 @@ const router = createRouter({
       component: () => import('../presenters/UserPresenter.vue')
     },
     {
-      path: '/searchResults',
-      name: 'searchResults',
-      component: () => import('../views/SearchResults.vue')
+      path: '/details',
+      name: 'detailsView',
+      component: () => import('../views/coinDetailsView.vue')
     },
     {
       path: '/login',
