@@ -7,6 +7,7 @@
 <script>
 import homeView from "../views/HomeView.vue";
 import { clone } from "@/cryptoSource";
+
 export default {
   props: ["model"],
   name: "CryptoPresenter",
