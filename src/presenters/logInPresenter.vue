@@ -26,7 +26,7 @@ export default {
       }
       let signupSuccess = this.model.attemptLogin(this.username, this.password)
       if (signupSuccess) {
-        //TODO Change to cryptoPresenter
+        this.$router.push({path: '/profile'})
         alert("Successfully logged in")
       }
       else alert("Incorrect account details. Try again!")

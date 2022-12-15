@@ -26,7 +26,10 @@ export default {
       }
       let signupSuccess = this.model.createAccount(this.username, this.password)
       console.log(this.model.accounts)
-      if (signupSuccess) alert("Account created!")
+      if (signupSuccess) {
+        this.$router.push({path: '/home'})
+        alert("Account created!")
+      }
       else alert("Account exists already!")
     },
     updateUsernameInput(username) {
