@@ -2,21 +2,29 @@
   <homeView :clone="copy"
             @search-crypto="searchCrypto"
             @onCryptoClick="setCurrentCryptoACB"
+            @searchCurrentCrypto="searchForCurCryptoACB"
+  />
+  <coinDetails
+      :coinData="coinDetailsPromiseState.data"
   />
 </template>
 <script>
+import coinDetails from '../views/coinDetailsView.vue';
 import homeView from "../views/HomeView.vue";
 import { clone } from "@/cryptoSource";
+import {myAPICall} from "@/cryptoSource";
+import resolvePromise from "@/resolvePromise";
 
 export default {
   props: ["model"],
   name: "CryptoPresenter",
-  components: { homeView },
+  components: { homeView, coinDetails },
 
   data() {
     return {
       copy: [],
       textSearch: "",
+      coinDetailsPromiseState: {},
     };
   },
 
@@ -33,7 +41,6 @@ export default {
       },
     },
   },
-
   created() {
     // Load the initial value to display all the cryptos at first render :)
     this.copy = this.initial;
@@ -54,6 +61,11 @@ export default {
       this.model.setCurrentCrypto(id);
       console.log(this.model.currentCrypto)
     },
+    searchForCurCryptoACB() {
+      console.log("sdgd");
+      resolvePromise(myAPICall(), this.coinDetailsPromiseState)
+    },
+
   },
 };
 </script>

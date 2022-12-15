@@ -41,10 +41,6 @@ export default {
   </div>
 </template>
 
-
-
-
-
 <style>
 .nav {
   background-color: #16d545;

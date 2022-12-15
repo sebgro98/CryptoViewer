@@ -27,8 +27,8 @@ export default {
     searchForCurCryptoACB() {
       console.log("sdgd");
       resolvePromise(myAPICall(), this.coinDetailsPromiseState)
-    }
-  }
+    },
+  },
 }
 </script>
 
