@@ -11,7 +11,7 @@ export default {
 
   <div class="user-cryptos">
     <div class="crypto">
-      <div class="header">fd</div>
+      <div class="header"></div>
       <div class="body">Other</div>
     </div>
     <div class="crypto">
