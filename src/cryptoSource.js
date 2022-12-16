@@ -27,23 +27,23 @@ function searchCryptos(endpoint) {
     return axios.get('https://api.coingecko.com/api/v3/search?query='+endpoint).then(treatHTTPResponseACB)
 }
 
+function getCryptoDetails(endpoint) {
+    var params1 = "https://api.coingecko.com/api/v3/coins/"
+    var params2 = "?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=true"
+    return axios.get(params1 + endpoint + params2).then(treatHTTPResponseACB)
+}
+
 function treatHTTPResponseACB(response) {
     if (response.status !== 200) {
         throw new Error("API Response Time: " + response.status);
     }
     else {
-        return response.json();
+        return response.data;
     }
 }
 
 
-const BASE_URL = "https://api.coingecko.com/api/v3/coins/";
-
-function myAPICall(apiParms){
-    return fetch("https://api.coingecko.com/api/v3/coins/" + "bitcoin").then(treatHTTPResponseACB);
-}
 
 
 
-
-export {searchCryptos,clone, myAPICall}
+export {searchCryptos,clone, getCryptoDetails}

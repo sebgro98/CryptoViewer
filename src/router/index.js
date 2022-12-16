@@ -44,7 +44,7 @@ const router = createRouter({
     {
       path: '/details',
       name: 'coinDetails',
-      component: () => import('../views/coinDetailsView.vue')
+      component: () => import('../presenters/coinDetailsPresenter.vue')
     },
     {
       path: '/login',

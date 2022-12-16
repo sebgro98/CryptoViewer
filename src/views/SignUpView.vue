@@ -40,7 +40,7 @@ export default{
 }
 
 body {
-  background: #35383b;
+  background-color: #1a1a1c;
   color: #606468;
   margin: 0;
 }

@@ -1,34 +1,48 @@
 <template>
-  <homeView
-      @searchCurrentCrypto="searchForCurCryptoACB"
-  />
   <coinDetails
-      :coinData="coinDetailsPromiseState.data"
+      :apiData="promiseState.data"
+      :user="this.model.currentLoggedInUser"
+      :cryptoInFavorites = "cryptoInFavorites"
+      @onAddToFavoritesClick="addCryptoToFavorites"
+      @onRemoveFromFavoritesClick="removeCryptoFromFavorites"
   />
 </template>
 
 <script>
 import coinDetails from '../views/coinDetailsView.vue';
-import homeView from '../views/HomeView.vue';
-import {myAPICall} from "@/cryptoSource";
+import {getCryptoDetails} from "@/cryptoSource";
 import resolvePromise from "@/resolvePromise";
 
 export default {
   name: "coinDetailsPresenter",
-  components: {coinDetails, homeView},
+  components: {coinDetails},
+  props: ['model'],
 
   data() {
     return {
-      coinDetailsPromiseState: {},
+      promiseState: {},
+      cryptoInFavorites: true
+
     }
   },
 
-  methods: {
-    searchForCurCryptoACB() {
-      console.log("sdgd");
-      resolvePromise(myAPICall(), this.coinDetailsPromiseState)
-    },
+  created() {
+    if (this.model.currentCrypto) {
+      resolvePromise(getCryptoDetails(this.model.currentCrypto), this.promiseState)
+    }
+    if (this.model.currentLoggedInUser) {
+      this.cryptoInFavorites = Object.values(this.model.accounts[this.model.currentLoggedInUser]['cryptos']).includes(this.model.currentCrypto)
+    }
   },
+  methods: {
+    addCryptoToFavorites() {
+      this.cryptoInFavorites = this.model.addCryptoToFavorites(this.model.currentCrypto)
+
+    },
+    removeCryptoFromFavorites() {
+      this.cryptoInFavorites = this.model.removeCryptoToFavorites(this.model.currentCrypto)
+    }
+  }
 }
 </script>
 

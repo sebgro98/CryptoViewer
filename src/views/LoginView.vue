@@ -38,7 +38,7 @@ export default{
 }
 
 body {
-  background: #35383b;
+  background-color: #1a1a1c;
   color: #606468;
   margin: 0;
 }
@@ -78,7 +78,7 @@ h2{
 
 .login_button:hover {
   color: #fff;
-  background-color: #1A1A1A;
+  background-color: #1a1a1c;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }

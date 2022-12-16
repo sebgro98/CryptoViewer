@@ -2,20 +2,16 @@
   <homeView :clone="copy"
             @search-crypto="searchCrypto"
             @onCryptoClick="setCurrentCryptoACB"
-            @searchCurrentCrypto="searchForCurCryptoACB"
   />
 </template>
 <script>
-import coinDetails from '../views/coinDetailsView.vue';
 import homeView from "../views/HomeView.vue";
 import { clone } from "@/cryptoSource";
-import {myAPICall} from "@/cryptoSource";
-import resolvePromise from "@/resolvePromise";
 
 export default {
   props: ["model"],
   name: "CryptoPresenter",
-  components: { homeView, coinDetails},
+  components: { homeView},
 
   data() {
     return {
@@ -56,14 +52,8 @@ export default {
     },
     setCurrentCryptoACB(id) {
       this.model.setCurrentCrypto(id);
-      console.log(this.model.currentCrypto)
+      this.$router.push({path: '/details'})
     },
-    searchForCurCryptoACB() {
-     resolvePromise(myAPICall(), this.coinDetailsPromiseState)
-     console.log(this.coinDetailsPromiseState.data);
-      console.log("gddfs");
-    },
-
   },
 };
 </script>
