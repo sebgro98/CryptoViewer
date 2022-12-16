@@ -1,5 +1,6 @@
 <template>
   <loginView
+      v-if="!this.model.currentLoggedInUser"
       @onButtonClick="loginToAccount"
       @onPasswordUpdate="updatePasswordInput"
       @onUsernameUpdate="updateUsernameInput"
@@ -26,7 +27,7 @@ export default {
       }
       let signupSuccess = this.model.attemptLogin(this.username, this.password)
       if (signupSuccess) {
-        this.$router.push({path: '/profile'})
+        this.$router.push({path: '/loggedinProfile'})
         alert("Successfully logged in")
       }
       else alert("Incorrect account details. Try again!")

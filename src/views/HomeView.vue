@@ -1,8 +1,7 @@
 <template>
   <div class="crypto-app">
     <div class="crypto-search">
-      <h1 class="crypto-text">
-      </h1>
+
       <form>
         <input
             type="text"
@@ -145,10 +144,10 @@ export default {
 }
 
 .crypto-app {
+  padding-top: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 64px;
   color: #fff;
   background-color: #1a1a1c;
   font-family: "Monserrat", sans-serif;

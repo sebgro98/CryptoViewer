@@ -1,5 +1,6 @@
 <template>
   <SignUpView
+      v-if="!this.model.currentLoggedInUser"
       @onButtonClick="createAccount"
       @onPasswordUpdate="updatePasswordInput"
       @onUsernameUpdate="updateUsernameInput"

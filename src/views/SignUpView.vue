@@ -7,7 +7,7 @@
       <label for="Password">Password</label><br>
       <input v-on:input="setPasswordInput" placeholder="Password" type="password" id="Password">
       <p>OBS: We have access to passwords, use a password that is not important for you</p>
-      <button @click="setAccountDetails" class="login_button">Register</button>
+      <button @click="setAccountDetails" type="button" class="login_button">Register</button>
     </form>
   </div>
 </template>

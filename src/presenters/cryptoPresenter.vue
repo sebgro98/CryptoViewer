@@ -4,9 +4,6 @@
             @onCryptoClick="setCurrentCryptoACB"
             @searchCurrentCrypto="searchForCurCryptoACB"
   />
-  <coinDetails
-      :coinData="coinDetailsPromiseState.data"
-  />
 </template>
 <script>
 import coinDetails from '../views/coinDetailsView.vue';
@@ -18,7 +15,7 @@ import resolvePromise from "@/resolvePromise";
 export default {
   props: ["model"],
   name: "CryptoPresenter",
-  components: { homeView, coinDetails },
+  components: { homeView, coinDetails},
 
   data() {
     return {

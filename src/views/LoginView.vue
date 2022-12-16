@@ -6,7 +6,7 @@
       <input v-on:input="setUsernameInput" placeholder="Username" type="text" id="Username"> <br>
       <label for="Password">Password</label><br>
       <input v-on:input="setPasswordInput" placeholder="Password" type="password" id="Password">
-      <button @click="setAccountDetails" class="login_button">Log in</button>
+      <button @click="setAccountDetails" type="button" class="login_button">Log in</button>
     </form>
   </div>
 </template>

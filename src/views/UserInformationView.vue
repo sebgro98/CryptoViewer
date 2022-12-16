@@ -3,11 +3,16 @@
     <div class="user-profile">
       <div class="left">
         <img src="../assets/logo.svg" alt="Profile Image" class="profile_image">
-        <div class="profile_name">Username</div>
+        <div class="profile_name">{{username}}</div>
       </div>
       <div class="right">
         <div class="profile_information">
           <h3>Information</h3>
+          <div v-if="cryptos.length > 0">
+            <p v-for="(value) in cryptos" :key="value.id">
+              {{value}}
+            </p>
+          </div>
       </div>
       </div>
     </div>
@@ -16,7 +21,11 @@
 
 <script>
 export default {
-  name: "UserInformationView"
+  name: "UserInformationView",
+  props: {
+    username: String,
+    cryptos: Object,
+  },
 }
 </script>
 

@@ -5,7 +5,7 @@
     <a><RouterLink to="/findUsers">Find Users</RouterLink></a>
     <a v-if="!loggedIn" ><RouterLink to="/login">Login</RouterLink></a>
     <a v-if="!loggedIn"><RouterLink to="/signup">Sign up</RouterLink></a>
-    <a v-if="loggedIn"><RouterLink to="/profile">Profile</RouterLink></a>
+    <a v-if="loggedIn"><RouterLink to="/loggedinProfile">Profile</RouterLink></a>
     <a v-on:click="logoutFromAccount" v-if="loggedIn"><RouterLink to="/home">Logout</RouterLink></a>
     <a href="javascript:void(0);" class="icon" v-bind:onclick="responsMenuACB">
       <label for="checkbox_toggle" class="menuCheckBox">&#9776;</label>
