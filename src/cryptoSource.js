@@ -39,8 +39,8 @@ function treatHTTPResponseACB(response) {
 
 const BASE_URL = "https://api.coingecko.com/api/v3/coins/";
 
-function myAPICall(){
-    return axios.get("https://api.coingecko.com/api/v3/coins/" + "bitcoin").then(treatHTTPResponseACB);
+function myAPICall(apiParms){
+    return fetch("https://api.coingecko.com/api/v3/coins/" + "bitcoin").then(treatHTTPResponseACB);
 }
 
 

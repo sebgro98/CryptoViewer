@@ -62,8 +62,9 @@ export default {
       console.log(this.model.currentCrypto)
     },
     searchForCurCryptoACB() {
-      console.log("sdgd");
-      resolvePromise(myAPICall(), this.coinDetailsPromiseState)
+     resolvePromise(myAPICall(), this.coinDetailsPromiseState)
+     console.log(this.coinDetailsPromiseState.data);
+      console.log("gddfs");
     },
 
   },

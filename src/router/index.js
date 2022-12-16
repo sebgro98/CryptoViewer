@@ -34,7 +34,7 @@ const router = createRouter({
     },
     {
       path: '/details',
-      name: 'detailsView',
+      name: 'coinDetails',
       component: () => import('../views/coinDetailsView.vue')
     },
     {
