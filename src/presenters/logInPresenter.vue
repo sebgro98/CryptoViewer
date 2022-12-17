@@ -35,7 +35,7 @@ export default {
         this.$router.push({path: '/loggedinProfile'})
         alert("Successfully logged in")
       }
-      //else alert("Incorrect account details. Try again!")
+      else alert("Incorrect account details. Try again!")
 
     },
     updatePasswordInput(password) {
