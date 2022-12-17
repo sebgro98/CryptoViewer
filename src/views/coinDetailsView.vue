@@ -29,7 +29,17 @@ export default {
 
 <template>
   <div v-if="apiData" class="user-cryptos">
-    <h1 style="color:white">{{apiData.name}}</h1>
+    <div class="cryptoNameAndPrice">
+      <h2 style="color:white; margin:0px">{{apiData.name}}</h2>
+      <h2 style="color:white; margin:0px">({{apiData.symbol}})</h2>
+    </div>
+
+    <div class="cryptoPriceAndChange">
+      <h2 style="color:white; margin:0px">
+        ${{apiData.market_data.current_price['usd']}}
+      </h2>
+      <h2 style="color:white; margin:0px"  >{{apiData.market_data.price_change_percentage_24h}}%</h2>
+    </div>
     <p style="color:white" v-html="apiData.description['en']"></p>
     <button v-if="user && !cryptoInFavorites" class="butonAdd" @click="addToFavorites">Add to favorites</button>
     <button v-if="user && cryptoInFavorites" class="butonRemove" @click="removeFromFavorites">Remove from favorites</button>
@@ -39,6 +49,19 @@ export default {
 </template>
 
 <style>
+
+.cryptoNameAndPrice{
+  display: flex;
+}
+
+.cryptoPriceAndChange{
+  display: flex;
+}
+
+.cryptoPriceAndChange > h2{
+  padding: 10px;
+  margin: 0px;
+}
 
 .butonRemove {
   background-color: #fc5757;
