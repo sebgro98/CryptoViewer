@@ -6,6 +6,7 @@
       <input v-on:input="setUsernameInput" placeholder="Username" type="text" id="Username" v-model="email"> <br>
       <label for="Password">Password</label><br>
       <input v-on:input="setPasswordInput" placeholder="Password" type="password" id="Password" v-model="password">
+      <p v-if="errorMessage"> {{errorMessage}}</p>
       <button @click="setAccountDetails" type="button" class="login_button">Log in</button>
     </form>
   </div>
@@ -29,7 +30,7 @@ export default{
 </script>
 
 <script setup>
-import {ref} from "vue";
+/*import {ref} from "vue";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import auth from "@/firebaseConfig";
 import {useRouter} from 'vue-router'
@@ -37,32 +38,34 @@ import {useRouter} from 'vue-router'
 const email = ref("");
 const password = ref("");
 const errorMessage = ref();
+const router = useRouter();
 
 //  set the const below to "setAccountDetails" to attempt to connect to firebase
 const setAccountDetails = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value).then((data) => {
     console.log("Successfully logged in!");
+
   }).catch((error) => {
     console.log("Error occurred!");
     console.log(error.code);
     switch (error.code){
       case "auth/invalid-email":
-        errorMessage.value = "Invalid email";
+        errorMessage.value = "Invalid email!";
         break;
       case "auth/user-not-found":
-        errorMessage.value = "Account does not exist";
+        errorMessage.value = "Account does not exist!";
         break;
       case "auth/wrong-password":
-        errorMessage.value = "Invalid password";
+        errorMessage.value = "Invalid password!";
         break;
       default:
-        errorMessage.value = "Email or password invalid";
+        errorMessage.value = "Email or password invalid!";
         break;
     }
-    alert(error.message);
+    //alert(error.message);
   })
-  console.log("test2");
-};
+  //console.log("test2");
+};*/
 
 </script>
 

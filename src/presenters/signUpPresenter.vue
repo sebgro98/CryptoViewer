@@ -25,7 +25,9 @@ export default {
         alert("Invalid account details")
         return;
       }
+      console.log("testing")
       let signupSuccess = this.model.createAccount(this.username, this.password)
+      console.log("furhvurhuvrhuvrhvru")
       console.log(this.model.accounts)
       if (signupSuccess) {
         this.$router.push({path: '/home'})

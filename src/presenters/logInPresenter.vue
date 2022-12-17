@@ -21,16 +21,22 @@ export default {
   },
   methods: {
     loginToAccount() {
+      console.log("tests")
       if (this.password === "" || this.username === "") {
         alert("Invalid account details")
         return;
       }
-      let signupSuccess = this.model.attemptLogin(this.username, this.password)
+      console.log(this.username);
+      console.log(this.username.valueOf());
+      let signupSuccess = this.model.attemptLogin(this.username.valueOf(), this.password.valueOf())
+      console.log("signupSuccess: ");
+      console.log(signupSuccess);
       if (signupSuccess) {
         this.$router.push({path: '/loggedinProfile'})
         alert("Successfully logged in")
       }
-      else alert("Incorrect account details. Try again!")
+      //else alert("Incorrect account details. Try again!")
+
     },
     updatePasswordInput(password) {
       this.password = password;
@@ -40,6 +46,10 @@ export default {
     }
   }
 }
+</script>
+
+<script setup>
+
 </script>
 
 <style scoped>

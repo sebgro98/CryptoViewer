@@ -31,40 +31,6 @@ export default{
 </script>
 
 
-<script setup>
-/* In firebaseConfig paste:
-initializeApp(firebaseConfig);
-
-const app = createApp(App);
-
-app.use(router);
-
-app.mount("#app")
-
-*/
-
-  import {ref} from "vue";
-  import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
-  import auth from "@/firebaseConfig";
-  import {useRouter} from 'vue-router'
-
-  const email = ref("");
-  const password = ref("");
-
-  //  set the const below to "setAccountDetails" to attempt to connect to firebase
-  const setAccountDetails = () => {
-    createUserWithEmailAndPassword(getAuth(), email.value, password.value).then((data) => {
-      console.log("Successfully registered!");
-    }).catch((error) => {
-      console.log("Error occurred!");
-      console.log(error.code);
-      alert(error.message);
-    })
-    console.log("test2");
-  };
-
-
-</script>
 
 <style>
 @media (min-width: 1024px) {

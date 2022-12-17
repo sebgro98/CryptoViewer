@@ -1,3 +1,5 @@
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from "firebase/auth";
+
 class CryptoModel {
     constructor() {
         this.accounts = {};
@@ -14,21 +16,49 @@ class CryptoModel {
         this.currentUser = username;
     }
 
-    createAccount(username, password) {
-        username = username.toLowerCase()
-        if (this.accounts[username]) return false;
-        this.accounts[username] = {password}
-        this.accounts[username]['cryptos'] = [];
-        return true;
+    createAccount(email, password) {
+        createUserWithEmailAndPassword(getAuth(), email.value, password.value).then((data) => {
+            console.log("Successfully registered!");
+            return true;
+        }).catch((error) => {
+            console.log("Error occurred!");
+            console.log(error.code);
+            alert(error.message);
+            return false;
+        })
+        console.log("test2");
     }
 
-    attemptLogin(username, password) {
-        username = username.toLowerCase();
-        if (this.accounts[username] && this.accounts[username]['password'] === password) {
-            this.currentLoggedInUser = username;
+    attemptLogin(email, password) {
+        console.log("email when login:")
+        console.log(email);
+
+        signInWithEmailAndPassword(getAuth(), email, password).then((data) => {
+            console.log("Successfully logged in!");
+            this.currentLoggedInUser = true;
+            this.currentUser = email;
             return true;
-        }
-        return false;
+        }).catch((error) => {
+            console.log("Error occurred!");
+            console.log(error.code);
+            /*switch (error.code){
+                case "auth/invalid-email":
+                    errorMessage.value = "Invalid email!";
+                    break;
+                case "auth/user-not-found":
+                    errorMessage.value = "Account does not exist!";
+                    break;
+                case "auth/wrong-password":
+                    errorMessage.value = "Invalid password!";
+                    break;
+                default:
+                    errorMessage.value = "Email or password invalid!";
+                    break;
+            }*/
+            alert(error.message);
+            return false;
+        })
+
     }
 
     logout() {
