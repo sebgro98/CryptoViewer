@@ -1,5 +1,8 @@
 <template>
-  <coinDetails
+  <promiseNoData
+      :promiseState="promiseState"
+  />
+  <coinDetails v-if="promiseState.data"
       :apiData="promiseState.data"
       :user="this.model.currentLoggedInUser"
       :cryptoInFavorites = "cryptoInFavorites"
@@ -12,10 +15,11 @@
 import coinDetails from '../views/coinDetailsView.vue';
 import {getCryptoDetails} from "@/cryptoSource";
 import resolvePromise from "@/resolvePromise";
+import promiseNoData from "@/views/promiseNoData.vue";
 
 export default {
   name: "coinDetailsPresenter",
-  components: {coinDetails},
+  components: {promiseNoData, coinDetails},
   props: ['model'],
 
   data() {

@@ -35,20 +35,25 @@ class CryptoModel {
         this.currentLoggedInUser = undefined;
     }
     addCryptoToFavorites(cryptoToAdd) {
-        console.log(this.accounts)
         if (!Object.values(this.accounts[this.currentLoggedInUser]['cryptos']).includes(cryptoToAdd)) {
-            this.accounts[this.currentLoggedInUser]['cryptos'] = [...this.accounts[this.currentLoggedInUser]['cryptos'], cryptoToAdd]
+            this.accounts[this.currentLoggedInUser]['cryptos'].push(cryptoToAdd)
             return true;
         }
         return false;
     }
 
     removeCryptoToFavorites(cryptoToRemove) {
-        function findIndex(crypto) {
-            return crypto[1] !== cryptoToRemove
+        function getIndex(crypto) {
+            return crypto === cryptoToRemove
         }
         if (Object.values(this.accounts[this.currentLoggedInUser]['cryptos']).includes(cryptoToRemove)) {
-            this.accounts[this.currentLoggedInUser]['cryptos'] = Object.fromEntries(Object.entries(this.accounts[this.currentLoggedInUser]['cryptos']).filter(findIndex))
+            let indexToRemove = this.accounts[this.currentLoggedInUser]['cryptos'].findIndex(getIndex)
+            if (indexToRemove === this.accounts[this.currentLoggedInUser]['cryptos'].length - 1) {
+                this.accounts[this.currentLoggedInUser]['cryptos'].pop()
+            }
+            else {
+                this.accounts[this.currentLoggedInUser]['cryptos'][indexToRemove] =  this.accounts[this.currentLoggedInUser]['cryptos'].pop()
+            }
             return false;
         }
         return true;
