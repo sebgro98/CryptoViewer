@@ -2,7 +2,7 @@
 <div class="main">
     <div class="user-profile">
       <div class="left">
-        <img src="../assets/logo.svg" alt="Profile Image" class="profile_image">
+        <img src="../assets/bitcoin_PNG47.png" alt="Profile Image" class="profile_image">
         <div class="profile_name">{{username}}</div>
       </div>
       <div class="right">
