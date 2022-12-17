@@ -28,13 +28,12 @@ export default {
 </script>
 
 <template>
-  <div v-if="apiData" class="user-cryptos">
+  <div class="user-cryptos">
     <h1 style="color:white">{{apiData.name}}</h1>
     <p style="color:white" v-html="apiData.description['en']"></p>
     <button v-if="user && !cryptoInFavorites" class="butonAdd" @click="addToFavorites">Add to favorites</button>
     <button v-if="user && cryptoInFavorites" class="butonRemove" @click="removeFromFavorites">Remove from favorites</button>
   </div>
-  <h1 v-else style="color:white">No data</h1>
 
 </template>
 
