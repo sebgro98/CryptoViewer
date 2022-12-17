@@ -51,7 +51,7 @@ app.mount("#app")
   const password = ref("");
 
   // set the const below to "setAccountDetails" to attempt to connect to firebase
-  const setAccountDetails1 = () => {
+  const setAccountDetails = () => {
     console.log("test1");
     const auth = getAuth();
     console.log("test1.5");
