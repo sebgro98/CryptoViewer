@@ -2,7 +2,7 @@
   <promiseNoData
       :promiseState="promiseState"
   />
-  <coinDetails
+  <coinDetails v-if="promiseState.data"
       :apiData="promiseState.data"
       :user="this.model.currentLoggedInUser"
       :cryptoInFavorites = "cryptoInFavorites"
