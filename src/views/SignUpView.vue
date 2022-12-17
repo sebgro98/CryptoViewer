@@ -51,7 +51,7 @@ app.mount("#app")
   const email = ref("");
   const password = ref("");
 
-  // set the const below to "setAccountDetails" to attempt to connect to firebase
+  //  set the const below to "setAccountDetails" to attempt to connect to firebase
   const setAccountDetails = () => {
     createUserWithEmailAndPassword(getAuth(), email.value, password.value).then((data) => {
       console.log("Successfully registered!");
