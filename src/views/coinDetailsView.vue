@@ -31,16 +31,72 @@ export default {
   <div v-if="apiData" class="user-cryptos">
     <div class="cryptoNameAndPrice">
       <h2 style="color:white; margin:0px">{{apiData.name}}</h2>
-      <h2 style="color:white; margin:0px">({{apiData.symbol}})</h2>
+      <h2 style="color:gold; margin:0px">({{apiData.symbol}})</h2>
     </div>
 
     <div class="cryptoPriceAndChange">
-      <h2 style="color:white; margin:0px">
+      <h3 style="color:white; margin:0px"  >
         ${{apiData.market_data.current_price['usd']}}
-      </h2>
-      <h2 style="color:white; margin:0px"  >{{apiData.market_data.price_change_percentage_24h}}%</h2>
+      </h3>
+      <h3 style="margin:0px"
+          :class="
+                  apiData.market_data.price_change_percentage_24h > 0 ? 'coGreen' : 'coRed'
+                "
+      >{{apiData.market_data.price_change_percentage_24h}}%</h3>
     </div>
-    <p style="color:white" v-html="apiData.description['en']"></p>
+
+    <div>
+      <div class="marketData">
+        <h2 style="color:white; padding-left:10px" >Market Stats</h2>
+      </div>
+
+      <div class="marketStats">
+        <div class="marketCap">
+          <p>MARKET CAP </p>
+          <p>USD  {{apiData.market_data.market_cap['usd']}}$</p>
+        </div>
+        <div class="POPULARITY">
+          <p>POPULARITY </p>
+          <p>#{{apiData.market_cap_rank}}</p>
+        </div>
+        <div>
+          <p>ALL TIME HIGH DATE </p>
+          <p> {{apiData.market_data.ath_date['usd']}}</p>
+        </div>
+        <div>
+          <p>ALL TIME HIGH </p>
+          <p>USD  {{apiData.market_data.ath['usd']}}</p>
+        </div>
+        <div>
+          <p>HIGH(24H)</p>
+          <p>USD  {{apiData.market_data.high_24h['usd']}}</p>
+        </div>
+        <div>
+          <p>LOW(24H) </p>
+          <p>USD  {{apiData.market_data.low_24h['usd']}}</p>
+        </div>
+        <div>
+          <p>CIRCULATING SUPPLY </p>
+          <p>{{apiData.market_data.circulating_supply}}</p>
+        </div>
+        <div>
+          <p>MAX SUPPLY </p>
+          <p>{{apiData.market_data.max_supply}}</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="aboutCoin">
+      <div class="aboutSec">
+        <h2>About</h2>
+      </div>
+      <p style="color:white" v-html="apiData.description['en']"></p>
+    </div>
+
+
+
+
     <button v-if="user && !cryptoInFavorites" class="butonAdd" @click="addToFavorites">Add to favorites</button>
     <button v-if="user && cryptoInFavorites" class="butonRemove" @click="removeFromFavorites">Remove from favorites</button>
   </div>
@@ -49,6 +105,13 @@ export default {
 </template>
 
 <style>
+.coGreen{
+  color: #5cbf2a;
+}
+
+.coRed{
+  color: red;
+}
 
 .cryptoNameAndPrice{
   display: flex;
@@ -58,10 +121,54 @@ export default {
   display: flex;
 }
 
-.cryptoPriceAndChange > h2{
+.cryptoPriceAndChange > h3{
   padding: 10px;
   margin: 0px;
 }
+
+.marketData{
+  background-color: #00336c;
+  height: 70px;
+}
+
+.marketData > h2{
+  padding-top: 20px;
+}
+
+
+.marketStats{
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.marketStats > div{
+  flex: 40%;
+  padding: 10px;
+  background-color: #00224d;
+  margin: 10px;
+  height: 50px;
+  text-align: center;
+}
+
+.marketStats > div > p {
+  margin-top: 0px;
+}
+
+.aboutCoin > p{
+  background-color: #1c0000;
+  padding: 10px;
+}
+
+.aboutSec{
+  background-color: #00336c;
+  color: white;
+  padding: 1px;
+}
+
+
 
 .butonRemove {
   background-color: #fc5757;
