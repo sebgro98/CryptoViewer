@@ -20,27 +20,24 @@ export default {
     }
   },
   methods: {
+    updateUsernameInput(username) {
+      this.username = username;
+    },
+    updatePasswordInput(password) {
+      this.password = password;
+    },
     createAccount() {
       if (this.password === "" || this.username === "") {
         alert("Invalid account details")
         return;
       }
       console.log("testing")
-      let signupSuccess = this.model.createAccount(this.username, this.password)
-      console.log("furhvurhuvrhuvrhvru")
+      this.model.setAccountDetails(this.username, this.password)
       console.log(this.model.accounts)
-      if (signupSuccess) {
-        this.$router.push({path: '/home'})
-        alert("Account created!")
-      }
-      else alert("Account exists already!")
+      alert("Account created!")
+      this.$router.push({path: '/home'})
     },
-    updateUsernameInput(username) {
-      this.username = username;
-    },
-    updatePasswordInput(password) {
-      this.password = password;
-    }
+
   }
 }
 </script>

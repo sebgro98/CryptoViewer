@@ -3,9 +3,9 @@
     <h2>Register</h2>
     <form v-on:submit.prevent>
       <label for="Username">Username</label><br>
-      <input v-on:input="setUsernameInput" placeholder="Username" type="text" id="Username" v-model="email"> <br>
+      <input v-on:input="setUsernameInput" placeholder="Username" type="text" id="Username"> <br>
       <label for="Password">Password</label><br>
-      <input v-on:input="setPasswordInput" placeholder="Password" type="password" id="Password" v-model="password">
+      <input v-on:input="setPasswordInput" placeholder="Password" type="password" id="Password">
       <p>OBS: We have access to passwords, use a password that is not important for you</p>
       <button @click="setAccountDetails" type="button" class="login_button">Register</button>
     </form>
@@ -23,37 +23,10 @@ export default{
       this.$emit("onUsernameUpdate", evt.target.value)
     },
     setAccountDetails() {
-
       this.$emit("onButtonClick");
     }
   }
 }
-</script>
-
-<script setup>
-import {ref} from "vue";
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
-import auth from "@/firebaseConfig";
-import {useRouter} from 'vue-router'
-
-const email = ref("");
-const password = ref("");
-const errorMessage = ref();
-const router = useRouter();
-
-//  set the const below to "setAccountDetails" to attempt to connect to firebase
-const setAccountDetails = () => {
-  createUserWithEmailAndPassword(getAuth(), email.value, password.value).then((data) => {
-    console.log("Successfully logged in!");
-    router.push('/home')
-  }).catch((error) => {
-    console.log("Error occurred!");
-    console.log(error.code);
-    //alert(error.message);
-  })
-  //console.log("test2");
-};
-
 </script>
 
 <style>
