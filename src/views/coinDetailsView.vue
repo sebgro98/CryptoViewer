@@ -168,6 +168,10 @@ export default {
   padding: 1px;
 }
 
+.aboutSec > h2{
+  margin: 15px;
+}
+
 
 
 .butonRemove {
