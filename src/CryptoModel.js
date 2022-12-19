@@ -44,6 +44,9 @@ class CryptoModel {
                     alert("Email or password invalid!");
                     break;
             }
+        }).then(() => {
+            this.currentLoggedInUser = true;
+            this.currentUser = email;
         })
     }
 
