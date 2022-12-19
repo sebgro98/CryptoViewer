@@ -49,6 +49,8 @@ body{
 }
 h3{
   color: white;
+  text-align: center;
+
 }
 
 .left{
