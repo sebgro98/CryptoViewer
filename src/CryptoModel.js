@@ -6,7 +6,7 @@ class CryptoModel {
         this.accounts = {};
         this.currentCrypto = undefined;
         this.currentLoggedInUser = undefined;
-        this.currentUser = undefined;
+        this.currentUser = {};
     }
 
     setCurrentCrypto(id) {
@@ -61,7 +61,8 @@ class CryptoModel {
     }
 
     logout() {
-        this.currentLoggedInUser = undefined;
+        this.currentLoggedInUser = false;
+        this.currentUser = {};
     }
     addCryptoToFavorites(cryptoToAdd) {
         if (!Object.values(this.accounts[this.currentLoggedInUser]['cryptos']).includes(cryptoToAdd)) {

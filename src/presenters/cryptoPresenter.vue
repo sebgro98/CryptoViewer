@@ -1,6 +1,8 @@
 <template>
-  <nodataPromise
-      :copy="copy"
+  <homeView v-if="copy.length <= 0"
+            :clone="clone"
+            @search-crypto="searchCrypto"
+            @onCryptoClick="setCurrentCryptoACB"
   />
   <homeView v-if="copy.length > 0"
             :clone="copy"
@@ -10,19 +12,19 @@
 </template>
 <script>
 import homeView from "../views/HomeView.vue";
-import nodataPromise from "@/views/nodataPromise.vue";
 import { clone } from "@/cryptoSource";
 
 export default {
   props: ["model"],
   name: "CryptoPresenter",
-  components: { homeView, nodataPromise},
+  components: { homeView},
 
   data() {
     return {
       copy: [],
       textSearch: "",
       coinDetailsPromiseState: {},
+      clone
     };
   },
 
@@ -52,12 +54,16 @@ export default {
         return (
             crypto.name.toLowerCase().includes(this.textSearch.toLowerCase()) ||
             crypto.symbol.toLowerCase().includes(this.textSearch.toLowerCase())
+
         );
       });
     },
     setCurrentCryptoACB(id) {
       this.model.setCurrentCrypto(id);
       this.$router.push({path: '/details'})
+    },
+    timeout(){
+      this.$router.push({path: '/home'})
     },
   },
 };

@@ -8,11 +8,6 @@
       <div class="right">
         <div class="profile_information">
           <h3>Information</h3>
-          <div v-if="cryptos.length > 0">
-            <p v-for="(value) in cryptos" :key="value.id">
-              {{value}}
-            </p>
-          </div>
       </div>
       </div>
     </div>

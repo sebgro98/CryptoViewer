@@ -2,7 +2,6 @@
   <UserInformationView
       v-if="currentUser"
       :username="this.currentUser"
-      :cryptos="this.model.accounts[currentUser]['cryptos']"
   />
   <h1 v-else>Error 404</h1>
 </template>
