@@ -17,47 +17,11 @@ class CryptoModel {
     }
 
     createAccount(email, password) {
-        createUserWithEmailAndPassword(getAuth(), email.value, password.value).then((data) => {
-            console.log("Successfully registered!");
-            return true;
-        }).catch((error) => {
-            console.log("Error occurred!");
-            console.log(error.code);
-            alert(error.message);
-            return false;
-        })
-        console.log("test2");
+
     }
 
     attemptLogin(email, password) {
-        console.log("email when login:")
-        console.log(email);
 
-        signInWithEmailAndPassword(getAuth(), email, password).then((data) => {
-            console.log("Successfully logged in!");
-            this.currentLoggedInUser = true;
-            this.currentUser = email;
-            return true;
-        }).catch((error) => {
-            console.log("Error occurred!");
-            console.log(error.code);
-            /*switch (error.code){
-                case "auth/invalid-email":
-                    errorMessage.value = "Invalid email!";
-                    break;
-                case "auth/user-not-found":
-                    errorMessage.value = "Account does not exist!";
-                    break;
-                case "auth/wrong-password":
-                    errorMessage.value = "Invalid password!";
-                    break;
-                default:
-                    errorMessage.value = "Email or password invalid!";
-                    break;
-            }*/
-            alert(error.message);
-            return false;
-        })
 
     }
 

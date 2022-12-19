@@ -30,7 +30,7 @@ export default{
 </script>
 
 <script setup>
-/*import {ref} from "vue";
+import {ref} from "vue";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import auth from "@/firebaseConfig";
 import {useRouter} from 'vue-router'
@@ -44,6 +44,7 @@ const router = useRouter();
 const setAccountDetails = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value).then((data) => {
     console.log("Successfully logged in!");
+    this.$router.push({path: '/profile'})
 
   }).catch((error) => {
     console.log("Error occurred!");
@@ -62,10 +63,10 @@ const setAccountDetails = () => {
         errorMessage.value = "Email or password invalid!";
         break;
     }
-    //alert(error.message);
+    alert(error.message);
   })
   //console.log("test2");
-};*/
+};
 
 </script>
 
