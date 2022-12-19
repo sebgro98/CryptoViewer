@@ -44,7 +44,7 @@ const router = useRouter();
 const setAccountDetails = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value).then((data) => {
     console.log("Successfully logged in!");
-    this.$router.push({path: '/profile'})
+    router.push({path: '/profile'})
 
   }).catch((error) => {
     console.log("Error occurred!");
