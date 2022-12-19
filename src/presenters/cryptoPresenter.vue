@@ -1,17 +1,22 @@
 <template>
-  <homeView :clone="copy"
+  <nodataPromise
+      :copy="copy"
+  />
+  <homeView v-if="copy.length > 0"
+            :clone="copy"
             @search-crypto="searchCrypto"
             @onCryptoClick="setCurrentCryptoACB"
   />
 </template>
 <script>
 import homeView from "../views/HomeView.vue";
+import nodataPromise from "@/views/nodataPromise.vue";
 import { clone } from "@/cryptoSource";
 
 export default {
   props: ["model"],
   name: "CryptoPresenter",
-  components: { homeView},
+  components: { homeView, nodataPromise},
 
   data() {
     return {
