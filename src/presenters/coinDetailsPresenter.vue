@@ -33,7 +33,6 @@ export default {
   created() {
     if (this.model.currentCrypto) {
       resolvePromise(getCryptoDetails(this.model.currentCrypto), this.promiseState)
-      console.log(this.promiseState)
     }
     if (this.model.currentLoggedInUser) {
       this.cryptoInFavorites = Object.values(this.model.accounts[this.model.currentLoggedInUser]['cryptos']).includes(this.model.currentCrypto)
@@ -42,7 +41,6 @@ export default {
   methods: {
     addCryptoToFavorites() {
       this.cryptoInFavorites = this.model.addCryptoToFavorites(this.model.currentCrypto)
-
     },
     removeCryptoFromFavorites() {
       this.cryptoInFavorites = this.model.removeCryptoToFavorites(this.model.currentCrypto)
