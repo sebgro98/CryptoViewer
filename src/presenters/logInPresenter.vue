@@ -1,9 +1,9 @@
 <template>
   <loginView
       v-if="!this.model.currentLoggedInUser"
-      @onButtonClick="loginToAccount"
-      @onPasswordUpdate="updatePasswordInput"
-      @onUsernameUpdate="updateUsernameInput"
+      @onLogButtonClick="loginToAccount"
+      @onPasswordInput="LogInPasswordInput"
+      @onUsernameInput="LogInUsernameInput"
   />
 </template>
 
@@ -15,42 +15,31 @@ export default {
   props: ["model"],
   data() {
     return {
-      password: "",
-      username: "",
+      logUsername: "",
+      logPassword: "",
     }
   },
   methods: {
+    LogInPasswordInput(password) {
+      this.logPassword = password;
+    },
+    LogInUsernameInput(username) {
+      this.logUsername = username;
+    },
     loginToAccount() {
-      console.log("tests")
-      if (this.password === "" || this.username === "") {
+      if (this.logUsername === "" || this.logPassword === "") {
         alert("Invalid account details")
         return;
       }
-      console.log(this.username);
-      console.log(this.username.valueOf());
-      let signupSuccess = this.model.attemptLogin(this.username.valueOf(), this.password.valueOf())
-      console.log("signupSuccess: ");
-      console.log(signupSuccess);
-      if (signupSuccess) {
-        this.$router.push({path: '/loggedinProfile'})
-        alert("Successfully logged in")
-      }
-      else alert("Incorrect account details. Try again!")
+      this.model.logIn(this.logUsername, this.logPassword);
+      alert("Successfully logged in")
+      this.$router.push({path: '/home'})
+    },
 
-    },
-    updatePasswordInput(password) {
-      this.password = password;
-    },
-    updateUsernameInput(username) {
-      this.username = username;
-    }
   }
 }
 </script>
 
-<script setup>
-
-</script>
 
 <style scoped>
 

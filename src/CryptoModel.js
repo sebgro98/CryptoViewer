@@ -1,5 +1,6 @@
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
-
+import {signInWithEmailAndPassword} from "firebase/auth";
+import auth from "@/firebaseConfig.js";
 class CryptoModel {
     constructor() {
         this.accounts = {};
@@ -18,11 +19,31 @@ class CryptoModel {
 
     setAccountDetails(email, password){
         createUserWithEmailAndPassword(getAuth(), email, password).then((data) => {
-            console.log("Successfully logged in!");
+            console.log("Successfully accountCreated in!");
         }).catch((error) => {
             console.log("Error occurred!");
             console.log(error.code);
             //alert(error.message);
+        })
+    }
+
+    logIn(email, password){
+        signInWithEmailAndPassword(getAuth(), email, password).then((data) => {
+        }).catch((error) => {
+            switch (error.code){
+                case "auth/invalid-email":
+                    alert("Invalid email!");
+                    break;
+                case "auth/user-not-found":
+                    alert("Account does not exist!");
+                    break;
+                case "auth/wrong-password":
+                    alert("Invalid password!");
+                    break;
+                default:
+                    alert("Email or password invalid!");
+                    break;
+            }
         })
     }
 

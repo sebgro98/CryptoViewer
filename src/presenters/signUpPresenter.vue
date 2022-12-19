@@ -33,9 +33,8 @@ export default {
       }
       console.log("testing")
       this.model.setAccountDetails(this.username, this.password)
-      console.log(this.model.accounts)
       alert("Account created!")
-      this.$router.push({path: '/home'})
+      this.$router.push({path: '/login'})
     },
 
   }
