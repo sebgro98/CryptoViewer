@@ -45,7 +45,7 @@ class CryptoModel {
                     break;
             }
         }).then(() => {
-            this.currentLoggedInUser = true;
+            this.currentLoggedInUser = email;
             this.currentUser = email;
         })
     }
