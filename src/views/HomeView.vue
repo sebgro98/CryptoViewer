@@ -73,6 +73,9 @@ export default {
   font-size: 30px;
   font-weight: 500;
 }
+.crypto-container:hover{
+  background-color: #808080;
+}
 
 .crypto-container {
   display: flex;

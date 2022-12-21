@@ -32,7 +32,6 @@ export default {
         return;
       }
       this.model.logIn(this.logUsername, this.logPassword);
-      alert("Successfully logged in")
       this.$router.push({path: '/home'})
     },
 
