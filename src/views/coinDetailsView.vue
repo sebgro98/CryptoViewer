@@ -1,5 +1,4 @@
 <script>
-
 export default {
   name: "coinDetails",
   props: {
@@ -9,11 +8,7 @@ export default {
   },
   data() {
     return {
-      chartData: {
-        '2022-12-16': 2,
-        '2022-12-15': 5,
-        '2022-12-14': 3
-      }
+
     }
   },
   methods: {

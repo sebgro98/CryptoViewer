@@ -13,17 +13,21 @@
 
 <script>
 import coinDetails from '../views/coinDetailsView.vue';
-import {getCryptoDetails} from "@/cryptoSource";
+import {getCryptoDetails,getCryptoChart, cryptoChart} from "@/cryptoSource";
 import resolvePromise from "@/resolvePromise";
 import promiseNoData from "@/views/promiseNoData.vue";
+
+
 
 export default {
   name: "coinDetailsPresenter",
   components: {promiseNoData, coinDetails},
   props: ['model'],
 
+
   data() {
     return {
+      cryptoChart,
       promiseState: {},
       cryptoInFavorites: true
 
@@ -32,8 +36,11 @@ export default {
 
   created() {
     if (this.model.currentCrypto) {
+      getCryptoChart(this.model.currentCrypto)
+      console.log(cryptoChart._rawValue)
       resolvePromise(getCryptoDetails(this.model.currentCrypto), this.promiseState)
     }
+
   },
   methods: {
     addCryptoToFavorites() {
@@ -43,6 +50,8 @@ export default {
       this.cryptoInFavorites = this.model.removeCryptoToFavorites(this.model.currentCrypto)
     }
   }
+
+
 }
 </script>
 

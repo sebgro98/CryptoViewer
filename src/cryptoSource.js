@@ -3,7 +3,7 @@ import {ref, watchEffect} from "vue";
 
 const cryptos = ref([])
 const clone = ref([])
-const chart = ref([])
+const cryptoChart = ref([])
 //api call data
 const getCrypto = async () => {
     try {
@@ -27,11 +27,18 @@ watchEffect(() => {
 
 const getCryptoChart = async (endpoint) => {
     try {
-        const response1 = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-        chart.value = response1.data
-    } catch (error) {
+        const params1 = 'https://api.coingecko.com/api/v3/coins/'
+        const params2 = '/market_chart?vs_currency=usd&days=365'
+        const response = await axios.get(params1 + endpoint + params2)
+
+        if (response.data) {
+            const coinChartData = response.data.prices.map(value => ({time: value[0]/1000, price: parseFloat(value[1].toFixed(2))}));
+            cryptoChart.value = coinChartData
+        }
+    } catch(error){
         console.log(error);
     }
+
 }
 
 
@@ -50,4 +57,4 @@ function treatHTTPResponseACB(response) {
     }
 }
 
-export {clone, getCryptoDetails, cryptos, getCryptoChart}
+export {clone, getCryptoDetails, cryptos, getCryptoChart,cryptoChart}

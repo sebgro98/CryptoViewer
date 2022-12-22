@@ -58,9 +58,6 @@ export default {
     updateCurrentCryptoACB(id) {
       this.$emit("onCryptoClick", id);
     },
-    reload() {
-      this.$emit("")
-    }
   },
 };
 </script>

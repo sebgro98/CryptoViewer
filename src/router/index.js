@@ -19,6 +19,7 @@ const router = createRouter({
       component: () => import('../presenters/profilePresenter.vue')
     },
 
+
     {
       path: '/loggedinProfile',
       name: 'loggedinProfile',
