@@ -1,11 +1,14 @@
 <template>
   <div class="login">
     <h2>Log in</h2>
-    <form v-on:submit.prevent>
+    <form v-on:submit.prevent
+          @keyup.enter="setAccountDetails
+          ">
       <label for="Username">Username</label><br>
       <input v-on:input="setUsernameInputLog" placeholder="Username" type="text" id="Username"> <br>
       <label for="Password">Password</label><br>
       <input v-on:input="setPasswordInputLog" placeholder="Password" type="password" id="Password" >
+
       <button @click="setAccountDetails" type="button" class="login_button">Log in</button>
     </form>
   </div>
