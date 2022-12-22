@@ -97,8 +97,8 @@ export default {
 
 
 
-    <button v-if="user && !cryptoInFavorites" class="butonAdd" @click="addToFavorites">Add to favorites</button>
-    <button v-if="user && cryptoInFavorites" class="butonRemove" @click="removeFromFavorites">Remove from favorites</button>
+    <button v-if="user && cryptoInFavorites" class="butonAdd" @click="addToFavorites">Add to favorites</button>
+    <button v-if="user && !cryptoInFavorites" class="butonRemove" @click="removeFromFavorites">Remove from favorites</button>
   </div>
   <h1 v-else style="color:white">No data</h1>
 
