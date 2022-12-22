@@ -14,12 +14,7 @@ export default {
   methods: {
     logout() {
       this.model.logout();
-      alert("You have successfully logged out!")
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

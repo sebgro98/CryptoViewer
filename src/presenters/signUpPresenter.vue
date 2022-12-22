@@ -31,7 +31,6 @@ export default {
         alert("Invalid account details")
         return;
       }
-      console.log("testing")
       this.model.setAccountDetails(this.username, this.password)
       alert("Account created!")
       this.$router.push({path: '/login'})

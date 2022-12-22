@@ -36,7 +36,6 @@ export default {
       this.model.logIn(this.logUsername, this.logPassword);
     },
     goToProfile() {
-      console.log("test")
       this.$router.push({path: '/profile'})
     }
   }

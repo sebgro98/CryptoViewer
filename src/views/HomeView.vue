@@ -1,4 +1,7 @@
 <template>
+
+  <div class="text-for-home">Explore top Crypto's like Bitcoin, Ethereum
+    and other popular Crypto's.</div>
   <div class="crypto-app">
     <div class="crypto-search">
       <form>
@@ -17,7 +20,9 @@
           <div class="crypto-row">
             <div class="crypto">
               <img :src="crypto.image" alt="crypto" />
+              <span>
               <h1>{{ crypto.name }}</h1>
+                </span>
               <p class="crypto-symbol">{{ crypto.symbol }}</p>
             </div>
             <div class="crypto-data">
@@ -72,8 +77,9 @@ export default {
   font-size: 30px;
   font-weight: 500;
 }
-.crypto-container:hover{
-  background-color: #808080;
+.crypto-container span:hover{
+  color: #FF8C00;
+  cursor: pointer
 }
 
 .crypto-container {
@@ -185,5 +191,13 @@ export default {
 
 .crypto-input::placeholder {
   color: #e2e2e2;
+}
+
+.text-for-home {
+  font-weight: bold;
+  font-size: 35px;
+  margin-top: 25px;
+  text-align: center;
+  color: #e2e2e2
 }
 </style>

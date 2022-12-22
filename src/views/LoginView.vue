@@ -8,8 +8,9 @@
       <input v-on:input="setUsernameInputLog" placeholder="Username" type="text" id="Username"> <br>
       <label for="Password">Password</label><br>
       <input v-on:input="setPasswordInputLog" placeholder="Password" type="password" id="Password" >
-
+      <span>
       <button @click="setAccountDetails" type="button" class="login_button">Log in</button>
+      </span>
     </form>
   </div>
 </template>
