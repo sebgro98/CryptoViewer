@@ -7,7 +7,7 @@
     <a v-if="!loggedIn"><RouterLink to="/signup">Sign up</RouterLink></a>
     <a v-if="loggedIn"><RouterLink to="/loggedinProfile">Profile</RouterLink></a>
     <a v-on:click="logoutFromAccount" v-if="loggedIn"><RouterLink to="/home">Logout</RouterLink></a>
-    <a href="javascript:void(0);" class="icon" v-bind:onclick="responsMenuACB">
+    <a href="javascript:void(0);" class="icon" v-bind:onclick="responseMenuACB">
       <label for="checkbox_toggle" class="menuCheckBox">&#9776;</label>
     </a>
   </div>
@@ -18,11 +18,11 @@
 
 export default {
   props: {
-    loggedIn: String,
+    loggedIn: Boolean,
   },
   methods: {
-    responsMenuACB() {
-      var x = document.getElementById("myMenuNav");
+    responseMenuACB() {
+      let x = document.getElementById("myMenuNav");
       if (x.className === "menuNav") {
         x.className += " responsive";
       } else {

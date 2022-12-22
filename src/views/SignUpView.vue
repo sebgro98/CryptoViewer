@@ -6,7 +6,7 @@
       <input v-on:input="setUsernameInput" placeholder="Username" type="text" id="Username"> <br>
       <label for="Password">Password</label><br>
       <input v-on:input="setPasswordInput" placeholder="Password" type="password" id="Password">
-      <p>OBS: We have access to passwords, use a password that is not important for you</p>
+      <p>OBS: Please set a password of at least 6 characters</p>
       <button @click="setAccountDetails" type="button" class="login_button">Register</button>
     </form>
   </div>

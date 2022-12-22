@@ -1,7 +1,6 @@
 <template>
   <div class="crypto-app">
     <div class="crypto-search">
-
       <form>
         <input
             type="text"
@@ -58,6 +57,9 @@ export default {
     },
     updateCurrentCryptoACB(id) {
       this.$emit("onCryptoClick", id);
+    },
+    reload() {
+      this.$emit("")
     }
   },
 };

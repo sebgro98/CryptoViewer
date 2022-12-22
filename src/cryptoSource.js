@@ -3,19 +3,21 @@ import {ref, watchEffect} from "vue";
 
 const cryptos = ref([])
 const clone = ref([])
+const chart = ref([])
 //api call data
 const getCrypto = async () => {
     try {
         const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-        cryptos.value = response.data
+        chart.value = response.data
     } catch (error) {
         console.log(error);
     }
 }
+
 getCrypto()
 //fetch timer do not overextend our limit
 setInterval(() => {
-    getCrypto();
+    getCrypto()
 }, 20000);
 
 watchEffect(() => {
@@ -23,13 +25,19 @@ watchEffect(() => {
     clone.value = dup;
 })
 
-function searchCryptos(endpoint) {
-    return axios.get('https://api.coingecko.com/api/v3/search?query='+endpoint).then(treatHTTPResponseACB)
+const getCryptoChart = async (endpoint) => {
+    try {
+        const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+        cryptos.value = response.data
+    } catch (error) {
+        console.log(error);
+    }
 }
 
+
 function getCryptoDetails(endpoint) {
-    var params1 = "https://api.coingecko.com/api/v3/coins/"
-    var params2 = "?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=true"
+    const params1 = "https://api.coingecko.com/api/v3/coins/"
+    const params2 = "?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=true"
     return axios.get(params1 + endpoint + params2).then(treatHTTPResponseACB)
 }
 
@@ -42,8 +50,4 @@ function treatHTTPResponseACB(response) {
     }
 }
 
-
-
-
-
-export {searchCryptos,clone, getCryptoDetails}
+export {clone, getCryptoDetails, cryptos, getCryptoChart}

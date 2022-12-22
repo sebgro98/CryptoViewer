@@ -21,7 +21,9 @@ export default {
 </script>
 
 <template>
+
   <Menu :model="model"/>
   <RouterView :model="model"/>
+
 </template>
 

@@ -19,11 +19,8 @@ class CryptoModel {
 
     setAccountDetails(email, password){
         createUserWithEmailAndPassword(getAuth(), email, password).then((data) => {
-            console.log("Successfully accountCreated in!");
         }).catch((error) => {
-            console.log("Error occurred!");
-            console.log(error.code);
-            //alert(error.message);
+            alert(error.message);
         })
     }
 
@@ -46,30 +43,8 @@ class CryptoModel {
             }
         }).then(() => {
             this.currentLoggedInUser = email;
-            this.currentUser = email;
+
         })
-    }
-
-
-    createAccount(email, password) {
-
-    }
-
-    attemptLogin(email, password) {
-
-
-    }
-
-    logout() {
-        this.currentLoggedInUser = false;
-        this.currentUser = {};
-    }
-    addCryptoToFavorites(cryptoToAdd) {
-        if (!Object.values(this.accounts[this.currentLoggedInUser]['cryptos']).includes(cryptoToAdd)) {
-            this.accounts[this.currentLoggedInUser]['cryptos'].push(cryptoToAdd)
-            return true;
-        }
-        return false;
     }
 
     removeCryptoToFavorites(cryptoToRemove) {
@@ -89,6 +64,19 @@ class CryptoModel {
         return true;
 
     }
+
+    logout() {
+        this.currentLoggedInUser = false;
+        this.currentUser = {};
+    }
+    addCryptoToFavorites(cryptoToAdd) {
+        if (!Object.values(this.accounts[this.currentLoggedInUser]['cryptos']).includes(cryptoToAdd)) {
+            this.accounts[this.currentLoggedInUser]['cryptos'].push(cryptoToAdd)
+            return true;
+        }
+        return false;
+    }
+
 }
 
 export default CryptoModel;
