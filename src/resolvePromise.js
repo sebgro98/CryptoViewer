@@ -7,6 +7,7 @@ function resolvePromise(promise, promiseState){
     function saveDataACB(result){
         if (promiseState.promise !== promise) return;
         promiseState.data= result;
+        console.log(promiseState.data)
     }
     function saveErrorACB(err)  {
         if (promiseState.promise !== promise) return;

@@ -7,6 +7,7 @@ class CryptoModel {
         this.currentCrypto = undefined;
         this.currentLoggedInUser = undefined;
         this.currentUser = {};
+        this.correctLogInInfo = false;
     }
 
     setCurrentCrypto(id) {
@@ -25,8 +26,10 @@ class CryptoModel {
     }
 
     logIn(email, password){
+        this.correctLogInInfo = true;
         signInWithEmailAndPassword(getAuth(), email, password).then((data) => {
         }).catch((error) => {
+            this.correctLogInInfo = false;
             switch (error.code){
                 case "auth/invalid-email":
                     alert("Invalid email!");
@@ -42,8 +45,9 @@ class CryptoModel {
                     break;
             }
         }).then(() => {
-            this.currentLoggedInUser = email;
-
+            if (this.correctLogInInfo){
+                this.currentLoggedInUser = email;
+            }
         })
     }
 

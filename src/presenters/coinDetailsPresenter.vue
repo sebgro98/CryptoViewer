@@ -33,7 +33,6 @@ export default {
   created() {
     if (this.model.currentCrypto) {
       resolvePromise(getCryptoDetails(this.model.currentCrypto), this.promiseState)
-
     }
   },
   methods: {

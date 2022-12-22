@@ -32,7 +32,10 @@ export default {
         return;
       }
       this.model.logIn(this.logUsername, this.logPassword);
-      this.$router.push({path: '/home'})
+
+      if (this.model.correctLogInInfo){
+        this.$router.push({path: '/home'})
+      }
     },
 
   }
