@@ -8,7 +8,7 @@ const chart = ref([])
 const getCrypto = async () => {
     try {
         const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-        chart.value = response.data
+        clone.value = response.data
     } catch (error) {
         console.log(error);
     }
@@ -27,8 +27,8 @@ watchEffect(() => {
 
 const getCryptoChart = async (endpoint) => {
     try {
-        const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-        cryptos.value = response.data
+        const response1 = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+        chart.value = response1.data
     } catch (error) {
         console.log(error);
     }
