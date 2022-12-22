@@ -18,7 +18,7 @@
 
 export default {
   props: {
-    loggedIn: Boolean,
+    loggedIn: String,
   },
   methods: {
     responseMenuACB() {

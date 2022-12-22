@@ -5,6 +5,8 @@
       @onPasswordInput="LogInPasswordInput"
       @onUsernameInput="LogInUsernameInput"
   />
+  <h1 v-else><RouterLink to="loggedinProfile">Go to profile</RouterLink></h1>
+
 </template>
 
 <script>
@@ -32,12 +34,11 @@ export default {
         return;
       }
       this.model.logIn(this.logUsername, this.logPassword);
-
-      if (this.model.correctLogInInfo){
-        this.$router.push({path: '/home'})
-      }
     },
-
+    goToProfile() {
+      console.log("test")
+      this.$router.push({path: '/profile'})
+    }
   }
 }
 </script>
