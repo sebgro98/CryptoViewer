@@ -32,14 +32,8 @@ export default{
 </script>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-body {
+
+.login body {
   background-color: #1a1a1c;
   color: #606468;
   margin: 0;

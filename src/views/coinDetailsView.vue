@@ -238,13 +238,13 @@ export default {
   }
 }
 
-* {
+.user-cryptos * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.user-cryptos {
+body {
   margin: 0;
   font-family: 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -253,6 +253,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #f4f4f4;
 }
+
 .big-text {
   text-align: center;
   margin: 1rem;

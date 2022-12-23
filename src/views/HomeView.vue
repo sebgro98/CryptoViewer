@@ -67,15 +67,13 @@ export default {
 </script>
 
 <style>
-.to-search {
-  float: left;
-  display: block;
-  text-align: center;
-  padding: 12px 16px;
-  text-decoration: none;
-  font-size: 30px;
-  font-weight: 500;
+
+body {
+  background-color: #1a1a1c;
+  color: #606468;
+  margin: 0;
 }
+
 .crypto-container span:hover{
   color: #FF8C00;
   cursor: pointer
