@@ -40,9 +40,14 @@ export default{
 <style>
 
 body {
-  background-color: #1a1a1c;
-  color: #606468;
   margin: 0;
+  font-family: 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #f4f4f4;
+  background-color: #1a1a1c;
 }
 
 .login{
