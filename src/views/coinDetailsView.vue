@@ -18,7 +18,9 @@ export default {
     }
   }
 }
+
 </script>
+
 
 <template>
   <div v-if="apiData" class="user-cryptos">
@@ -27,25 +29,18 @@ export default {
         <div class='coin-container'>
           <div class='content'>
             <div class="big-text">
-            <h1>{{ apiData.name }}</h1>
+              <h1>{{ apiData.name }}</h1>
             </div>
           </div>
           <div class='content'>
             <div class='rank'>
               <span class='rank-btn'>Rank # {{ apiData.market_cap_rank }}</span>
             </div>
-            <div class='info'>
-              <div class='coin-heading'>
-                <img :src="apiData.image.small" alt=''/>
-                <p>{{ apiData.name }}</p>
-                {{ apiData.symbol.toUpperCase() }}/USD
 
-              </div>
-              <div class='coin-price'>
-                <h1>${{ apiData.market_data.current_price.usd.toLocaleString() }}</h1>
-              </div>
-            </div>
+            <div class="chart"><coingecko-coin-price-chart-widget v-bind:coin-id="[apiData.id]" currency="usd" height="300" locale="en" background-color="#26272B"></coingecko-coin-price-chart-widget></div>
           </div>
+
+
 
           <div class='content'>
             <table class="table-table">
@@ -62,7 +57,7 @@ export default {
 
               <tbody>
               <tr
-                class="table-data"
+                  class="table-data"
               >
                 <td><p :class="
                   apiData.market_data.price_change_percentage_1h_in_currency.usd.toFixed(1) > 0 ? 'green' : 'red'">
@@ -252,6 +247,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #f4f4f4;
+  background-color: #1a1a1c;
 }
 
 .big-text {
@@ -305,10 +301,6 @@ body {
 .butonAdd:active {
   position: relative;
   top: 1px;
-}
-
-body {
-  background-color: #1a1a1c;
 }
 
 

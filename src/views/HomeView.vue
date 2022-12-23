@@ -1,10 +1,9 @@
 <template>
-
   <div class="text-for-home">Explore top Crypto's like Bitcoin, Ethereum
     and other popular Crypto's.</div>
   <div class="crypto-app">
     <div class="crypto-search">
-      <form>
+      <form v-on:submit.prevent>
         <input
             type="text"
             placeholder="Search"
@@ -69,9 +68,14 @@ export default {
 <style>
 
 body {
-  background-color: #1a1a1c;
-  color: #606468;
   margin: 0;
+  font-family: 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #f4f4f4;
+  background-color: #1a1a1c;
 }
 
 .crypto-container span:hover{
