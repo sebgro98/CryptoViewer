@@ -28,7 +28,6 @@
             <div class="crypto-data">
               <p class="crypto-price">${{ crypto.current_price }}</p>
               <p class="crypto-volume">${{ crypto.total_volume }}</p>
-              <!-- percent green-->
               <p
                   :class="
                   crypto.price_change_percentage_24h > 0 ? 'green' : 'red'

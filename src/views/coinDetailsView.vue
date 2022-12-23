@@ -22,7 +22,7 @@ export default {
 
 <template>
   <div v-if="apiData" class="user-cryptos">
-    <div class="big-body">
+    <div>
       <div>
         <div class='coin-container'>
           <div class='content'>
@@ -48,9 +48,9 @@ export default {
           </div>
 
           <div class='content'>
-            <table>
+            <table class="table-table">
               <thead>
-              <tr>
+              <tr class="table-head">
                 <th>1h</th>
                 <th>24h</th>
                 <th>7d</th>
@@ -59,9 +59,10 @@ export default {
                 <th>1yr</th>
               </tr>
               </thead>
+
               <tbody>
               <tr
-
+                class="table-data"
               >
                 <td><p :class="
                   apiData.market_data.price_change_percentage_1h_in_currency.usd.toFixed(1) > 0 ? 'green' : 'red'">
@@ -120,11 +121,17 @@ export default {
     <button v-if="user && !cryptoInFavorites" class="butonRemove" @click="removeFromFavorites">Remove from favorites
     </button>
   </div>
-  <h1 v-else style="color:white">No data</h1>
+  <div v-else class='no-data'>No data</div>
 
 </template>
 
 <style>
+
+.no-data{
+  text-align: center;
+  font-size: large;
+}
+
 
 .coin-container .content {
   max-width: 740px;
@@ -170,16 +177,16 @@ export default {
   padding-right: 1rem;
 }
 
-table {
+.table-table table {
   margin: .5rem 0;
 }
 
-td, th {
+.table-data td, .table-head th {
   padding: 8px;
   text-align: center;
 }
 
-th {
+.table-head th {
   background-color: #333;
 }
 
@@ -203,6 +210,7 @@ th {
 }
 
 .about h3 {
+  text-align: center;
   margin: 1rem 0;
 }
 
@@ -236,7 +244,7 @@ th {
   padding: 0;
 }
 
-body {
+.user-cryptos {
   margin: 0;
   font-family: 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
