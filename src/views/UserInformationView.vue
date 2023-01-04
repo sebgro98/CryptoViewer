@@ -20,7 +20,6 @@ export default {
   props: {
     username: String,
     cryptos: Object,
-    favouriteCrypto: Object,
   },
 }
 </script>
