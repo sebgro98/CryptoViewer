@@ -230,11 +230,7 @@ td, th {
   }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 
 body {
   margin: 0;
@@ -244,7 +240,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #f4f4f4;
+  box-sizing: border-box;
+  padding: 0;
 }
+
 .big-text {
   text-align: center;
   margin: 1rem;
