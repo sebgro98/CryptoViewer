@@ -243,6 +243,7 @@ body {
   box-sizing: border-box;
   padding: 0;
 }
+
 .big-text {
   text-align: center;
   margin: 1rem;
