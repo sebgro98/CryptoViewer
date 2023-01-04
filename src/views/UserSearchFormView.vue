@@ -11,9 +11,9 @@
       </form>
     </div>
     <div v-if="Object.keys(this.searchData).length > 0">
-      <tr v-for="(account, username) in searchData">
-        <div v-on:click="updateCurrentUser(username)">
-          <h1>{{username}}</h1>
+      <tr v-for="(account) in searchData">
+        <div v-on:click="updateCurrentUser(account.id)">
+          <h1>{{account.email}}</h1>
         </div>
       </tr>
     </div>

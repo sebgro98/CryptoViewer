@@ -19,11 +19,11 @@ export default {
     }
   },
   created() {
-    this.searchData = this.model.accounts;
+    this.model.getAccountList()
   },
   methods: {
     setSearchQuery(text) {
-      this.searchData = Object.fromEntries(Object.entries(this.model.accounts).filter(([key]) => key.includes(text.toLowerCase())))
+      this.searchData = Object.fromEntries(Object.entries(this.model.accounts).filter((data) => data[1].email.includes(text)))
     },
     setCurrentUser(text) {
       this.model.setCurrentUser(text);
