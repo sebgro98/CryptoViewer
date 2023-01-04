@@ -12,8 +12,8 @@
     </div>
     <div v-if="Object.keys(this.searchData).length > 0">
       <tr v-for="(account) in searchData">
-        <div v-on:click="updateCurrentUser(account.id)">
-          <h1>{{account.email}}</h1>
+        <div v-on:click="updateCurrentUser(account.id)" class="userContent">
+          <h1 id="emailText"> {{account.email}}</h1>
         </div>
       </tr>
     </div>
@@ -40,6 +40,25 @@ export default {
 </script>
 
 <style scoped>
+
+#emailText {
+  text-align: center;
+}
+
+.userContent {
+  background-color: #212226;
+  width: 700px;
+  padding-block: 1px;
+  margin: 10px;
+  border-radius: 30px;
+}
+
+.userContent:hover {
+  background-color: #4e4f57;
+}
+.userContent:hover h1 {
+  color: #ffc400
+}
 
 .user-search-app {
   display: flex;

@@ -20,6 +20,8 @@ export default {
   },
   created() {
     this.model.getAccountList()
+    this.searchData = this.model.accounts;
+    console.log(this.searchData)
   },
   methods: {
     setSearchQuery(text) {
