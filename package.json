@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.2.1",
-    "firebase": "^9.14.0",
+    "firebase": "^9.15.0",
     "highcharts": "^10.3.2",
     "lightweight-charts": "^3.8.0",
     "moment-timezone": "^0.5.40",

@@ -1,6 +1,7 @@
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import {signInWithEmailAndPassword} from "firebase/auth";
-import auth from "@/firebaseConfig.js";
+import auth from "@/firebaseModel.js";
+import { db } from "./firebaseModel"
 class CryptoModel {
     constructor() {
         this.accounts = {};

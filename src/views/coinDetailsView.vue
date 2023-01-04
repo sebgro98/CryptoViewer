@@ -50,7 +50,7 @@ export default {
           <div class='content'>
             <table>
               <thead>
-              <tr>
+              <tr class="tableHead">
                 <th>1h</th>
                 <th>24h</th>
                 <th>7d</th>
@@ -179,7 +179,7 @@ td, th {
   text-align: center;
 }
 
-th {
+.tableHead > th {
   background-color: #333;
 }
 
