@@ -90,7 +90,6 @@ export default {
                 <div class='row'>
                   <h4>24 Hour High</h4>
                   <p>${{ apiData.market_data.high_24h.usd.toLocaleString() }}</p></div>
-
               </div>
               <div class='right'>
                 <div class='row'>
@@ -105,7 +104,6 @@ export default {
               </div>
             </div>
           </div>
-
           <div class='content'>
             <div class='about'>
               <h3>About</h3>

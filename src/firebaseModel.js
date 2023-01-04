@@ -4,10 +4,6 @@ import {initializeApp} from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 //import firebase from "firebase/app";
 
-
-
-
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //const REF="dinnerModel31";

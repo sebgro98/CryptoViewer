@@ -60,10 +60,7 @@ export default {
     },
     setCurrentCryptoACB(id) {
       this.model.setCurrentCrypto(id);
-      this.$router.push({path: '/details'})
-    },
-    timeout(){
-      this.$router.push({path: '/home'})
+      this.$router.push({path: '/details' + "/" + id})
     },
   },
 };

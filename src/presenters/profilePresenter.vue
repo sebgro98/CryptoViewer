@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import UserInformationView from '../views/UserInformationView.vue';
+ import UserInformationView from '../views/UserInformationView.vue';
 export default {
   name: "profilePresenter",
   components: {UserInformationView},
@@ -18,8 +18,8 @@ export default {
     }
   },
   created() {
-    if (this.model.currentUser) {
-      this.currentUser = this.model.currentUser;
+    if (this.model.currentLoggedInUser) {
+      this.currentUser = this.model.currentLoggedInUser;
     }
   },
 }
