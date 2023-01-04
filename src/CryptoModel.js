@@ -2,6 +2,8 @@ import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import {signInWithEmailAndPassword} from "firebase/auth";
 import auth from "@/firebaseModel.js";
 import { db } from "./firebaseModel"
+import { doc, setDoc } from "firebase/firestore";
+
 class CryptoModel {
     constructor() {
         this.accounts = {};
@@ -10,6 +12,15 @@ class CryptoModel {
         this.currentUser = {};
         this.correctLogInInfo = false;
     }
+
+    saveFavoritesCrypto(cryptoName){
+        setDoc(doc(db, "favoriter", "new-city-id"), {
+            crypto: "Tokyo"
+        }).then(r => console.log(r));
+        return true;
+    }
+
+
 
     setCurrentCrypto(id) {
         this.currentCrypto = id;

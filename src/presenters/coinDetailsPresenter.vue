@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     addCryptoToFavorites() {
-      this.cryptoInFavorites = this.model.addCryptoToFavorites(this.model.currentCrypto)
+      this.cryptoInFavorites = this.model.saveFavoritesCrypto(this.model.currentCrypto)
     },
     removeCryptoFromFavorites() {
       this.cryptoInFavorites = this.model.removeCryptoToFavorites(this.model.currentCrypto)
