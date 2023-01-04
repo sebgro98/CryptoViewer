@@ -13,7 +13,7 @@
 
 <script>
 import coinDetails from '../views/coinDetailsView.vue';
-import {getCryptoDetails,getCryptoChart, cryptoChart} from "@/cryptoSource";
+import {getCryptoDetails} from "@/cryptoSource";
 import resolvePromise from "@/resolvePromise";
 import promiseNoData from "@/views/promiseNoData.vue";
 
@@ -27,7 +27,6 @@ export default {
 
   data() {
     return {
-      cryptoChart,
       promiseState: {},
       cryptoInFavorites: true
 
@@ -36,8 +35,6 @@ export default {
 
   created() {
     if (this.model.currentCrypto) {
-      getCryptoChart(this.model.currentCrypto)
-      console.log(cryptoChart._rawValue)
       resolvePromise(getCryptoDetails(this.model.currentCrypto), this.promiseState)
     }
 

@@ -1,11 +1,11 @@
 <template>
 <div class="main">
     <div class="user-profile">
-      <div class="left">
+      <div class="left-user">
         <img src="../assets/bitcoin_PNG47.png" alt="Profile Image" class="profile_image">
         <div class="profile_name">{{username}}</div>
       </div>
-      <div class="right">
+      <div class="right-user">
         <div class="profile_information">
           <h3>Information</h3>
       </div>
@@ -26,11 +26,6 @@ export default {
 
 <style>
 
-body{
-  background-color: #1a1a1c;
-
-}
-
 .user-profile{
   padding:0;
   list-style: none;
@@ -47,18 +42,17 @@ body{
   background: #212121;
   margin: 10px;
 }
-h3{
+.profile_information{
   color: white;
   text-align: center;
 
 }
-
-.left{
+.left-user{
   width: 21%;
   padding: 30px 25px;
 }
 
-.right{
+.right-user{
   width: 79%;
   padding: 30px 25px;
 }

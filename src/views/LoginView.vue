@@ -17,11 +17,16 @@
     </form>
     </div>
   </div>
+
 </template>
 
 <script>
 export default{
   name: "LoginView",
+  props: {
+    copy: Boolean,
+
+  },
   methods: {
     setPasswordInputLog(evt) {
       this.$emit("onPasswordInput", evt.target.value)
