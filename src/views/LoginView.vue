@@ -1,6 +1,9 @@
 <template>
   <div class="login">
+    <div class="text-login">
     <h2>Log in</h2>
+    </div>
+    <div class="change-form">
     <form v-on:submit.prevent
           @keyup.enter="setAccountDetails
           ">
@@ -12,6 +15,7 @@
       <button @click="setAccountDetails" type="button" class="login_button">Log in</button>
       </span>
     </form>
+    </div>
   </div>
 </template>
 
@@ -34,18 +38,16 @@ export default{
 
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
 
 body {
-  background-color: #1a1a1c;
-  color: #606468;
   margin: 0;
+  font-family: 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #f4f4f4;
+  background-color: #1a1a1c;
 }
 
 .login{
@@ -58,7 +60,7 @@ body {
   margin-top: 60px;
 }
 
-h2{
+.text-login h2{
   font-size: 30px;
 }
 
@@ -93,7 +95,7 @@ h2{
   transform: translateY(0);
 }
 
-form {
+.change-form form {
   text-align: center;
   padding-left: 10%;
   padding-right: 10%;

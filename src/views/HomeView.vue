@@ -1,10 +1,9 @@
 <template>
-
   <div class="text-for-home">Explore top Crypto's like Bitcoin, Ethereum
     and other popular Crypto's.</div>
   <div class="crypto-app">
     <div class="crypto-search">
-      <form>
+      <form v-on:submit.prevent>
         <input
             type="text"
             placeholder="Search"
@@ -28,7 +27,6 @@
             <div class="crypto-data">
               <p class="crypto-price">${{ crypto.current_price }}</p>
               <p class="crypto-volume">${{ crypto.total_volume }}</p>
-              <!-- percent green-->
               <p
                   :class="
                   crypto.price_change_percentage_24h > 0 ? 'green' : 'red'
@@ -68,15 +66,18 @@ export default {
 </script>
 
 <style>
-.to-search {
-  float: left;
-  display: block;
-  text-align: center;
-  padding: 12px 16px;
-  text-decoration: none;
-  font-size: 30px;
-  font-weight: 500;
+
+body {
+  margin: 0;
+  font-family: 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #f4f4f4;
+  background-color: #1a1a1c;
 }
+
 .crypto-container span:hover{
   color: #FF8C00;
   cursor: pointer
