@@ -11,11 +11,14 @@ class CryptoModel {
         this.currentLoggedInUser = undefined;
         this.currentUser = {};
         this.correctLogInInfo = false;
+        this.currentUserUID = {};
+        this.favCryptos =[];
     }
 
     saveFavoritesCrypto(cryptoName){
-        setDoc(doc(db, "favoriter", "new-city-id"), {
-            crypto: "Tokyo"
+        this.favCryptos.push(cryptoName)
+        setDoc(doc(db, "favoriter", this.currentUserUID), {
+            crypto:  this.favCryptos
         }).then(r => console.log(r));
         return true;
     }
@@ -40,6 +43,7 @@ class CryptoModel {
     logIn(email, password){
         this.correctLogInInfo = true;
         signInWithEmailAndPassword(getAuth(), email, password).then((data) => {
+            this.currentUserUID = data.user.uid;
         }).catch((error) => {
             this.correctLogInInfo = false;
             switch (error.code){
