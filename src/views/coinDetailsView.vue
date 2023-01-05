@@ -90,7 +90,6 @@ export default {
                 <div class='row'>
                   <h4>24 Hour High</h4>
                   <p>${{ apiData.market_data.high_24h.usd.toLocaleString() }}</p></div>
-
               </div>
               <div class='right'>
                 <div class='row'>
@@ -105,7 +104,6 @@ export default {
               </div>
             </div>
           </div>
-
           <div class='content'>
             <div class='about'>
               <h3>About</h3>
@@ -230,11 +228,7 @@ td, th {
   }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 
 body {
   margin: 0;
@@ -244,7 +238,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #f4f4f4;
+  box-sizing: border-box;
+  padding: 0;
 }
+
 .big-text {
   text-align: center;
   margin: 1rem;

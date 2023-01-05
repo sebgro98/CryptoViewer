@@ -1,11 +1,11 @@
 <template>
-  <loginView
-      v-if="!this.model.currentLoggedInUser"
+  <loginView v-if="!this.model.currentLoggedInUser"
       @onLogButtonClick="loginToAccount"
       @onPasswordInput="LogInPasswordInput"
       @onUsernameInput="LogInUsernameInput"
+      @goToProfile="goToProfile"
   />
-  <h1 v-else><RouterLink to="loggedinProfile">Go to profile</RouterLink></h1>
+  <h1 v-else><RouterLink to="profile">Go to profile</RouterLink></h1>
 
 </template>
 
@@ -21,12 +21,16 @@ export default {
       logPassword: "",
     }
   },
+  created() {
+    this.copy = this.model.currentLoggedInUser
+  },
   methods: {
     LogInPasswordInput(password) {
       this.logPassword = password;
     },
     LogInUsernameInput(username) {
       this.logUsername = username;
+      console.log(username)
     },
     loginToAccount() {
       if (this.logUsername === "" || this.logPassword === "") {
@@ -34,6 +38,7 @@ export default {
         return;
       }
       this.model.logIn(this.logUsername, this.logPassword);
+
     },
     goToProfile() {
       this.$router.push({path: '/profile'})

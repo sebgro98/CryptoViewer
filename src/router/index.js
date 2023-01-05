@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -9,7 +10,6 @@ const router = createRouter({
       name: 'home',
       component: () => import('../presenters/cryptoPresenter.vue')
     },
-
     {
       path: '/profile',
       name: 'profile',
@@ -18,14 +18,6 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../presenters/profilePresenter.vue')
     },
-    {
-      path: '/loggedinProfile',
-      name: 'loggedinProfile',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../presenters/loggedinProfilePresenter.vue')
-    },
 
     {
       path: '/findUsers',
@@ -33,9 +25,10 @@ const router = createRouter({
       component: () => import('../presenters/userSearchPresenter.vue')
     },
     {
-      path: '/details',
+      path: '/details/:id',
       name: 'coinDetails',
       component: () => import('../presenters/coinDetailsPresenter.vue')
+
     },
     {
       path: '/login',
