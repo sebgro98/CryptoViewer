@@ -7,7 +7,8 @@
       </div>
       <div class="right-user">
         <div class="profile_information">
-          <h3>Information</h3>
+          <h3>Favorites Crypto</h3>
+          <h2>{{cryptos}}</h2>
       </div>
       </div>
     </div>
@@ -19,7 +20,7 @@ export default {
   name: "UserInformationView",
   props: {
     username: String,
-    cryptos: Object,
+    cryptos: Array,
   },
 }
 </script>

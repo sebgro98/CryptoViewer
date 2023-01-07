@@ -38,7 +38,7 @@ export default {
         return;
       }
       this.model.logIn(this.logUsername, this.logPassword);
-
+      this.model.getFavoritesFromFirestore(this.logUsername);
     },
     goToProfile() {
       this.$router.push({path: '/profile'})
