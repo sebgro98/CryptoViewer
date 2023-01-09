@@ -3,13 +3,18 @@
     <div class="user-profile">
       <div class="left-user">
         <img src="../assets/bitcoin_PNG47.png" alt="Profile Image" class="profile_image">
-        <div class="profile_name">{{ username }}</div>
+        <div class="profile_name">{{ username }} </div>
       </div>
       <div class="right-user">
         <div class="profile_information">
-          <h3 class="caption">Favorite Crypto</h3>
+          <h3 class="caption">Favorite Cryptos &#128127; </h3>
+
           <div v-for="crypto in cryptos" :key="crypto">
-            <h2>{{ crypto }}</h2>
+            <div v-on:click="updateCurrentCryptoACB(crypto)" class="crypto-container">
+              <span>
+            <h2 class="crypto-name">{{ crypto.toUpperCase() }}</h2>
+                </span>
+          </div>
           </div>
         </div>
       </div>
@@ -24,15 +29,42 @@ export default {
     username: String,
     cryptos: Array,
   },
+
+  methods: {
+    updateCurrentCryptoACB(id) {
+      this.$emit("onCryptoClick", id);
+    }
+  }
 }
 </script>
 
 <style>
 
-.caption {
-
+.crypto-container span:hover{
+  cursor: pointer;
 }
 
+.crypto-name {
+  --color-background: #000119;
+  --stroke-width: calc(1em / 16);
+  --font-size: 30vmin;
+  --font-weight: 700;
+  --letter-spacing: calc(1em / 8);
+  display: inline-block;
+  background-image: linear-gradient(to right, #09f1b8, #00a2ff, #ff00d2, #fed90f);
+  color: var(--color-background);
+  font-weight: var(--font-weight);
+  letter-spacing: var(--letter-spacing);
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: var(--stroke-width);
+}
+
+.caption {
+  font-weight: bold;
+  font-size: 35px;
+  margin-top: 25px;
+  text-align: center;
+}
 .user-profile {
   padding: 0;
   list-style: none;
@@ -50,12 +82,6 @@ export default {
   margin: 10px;
 }
 
-.profile_information {
-  color: white;
-  text-align: center;
-
-}
-
 .left-user {
   width: 21%;
   padding: 30px 25px;
@@ -64,21 +90,6 @@ export default {
 .right-user {
   width: 79%;
   padding: 30px 25px;
-}
-
-.profile_information {
-  margin-bottom: 25px;
-
-}
-
-.profile_description {
-  margin-top: 50px;
-  color: white;
-
-}
-
-.profile_email {
-  margin-top: 25px;
 }
 
 .profile_image {
@@ -90,11 +101,11 @@ export default {
 }
 
 .profile_name {
-  font-size: 1.5em;
+  font-size: 35px;
   font-weight: bold;
   color: white;
   text-align: left;
-  margin: 10px;
+  margin: 25px;
 }
 
 </style>

@@ -3,6 +3,7 @@
       v-if="currentUser"
       :username="this.currentUser"
       :cryptos = "this.favCrypto"
+      @onCryptoClick="setCurrentCryptoACB"
   />
   <h1 v-else>Error 404</h1>
 </template>
@@ -28,6 +29,13 @@ export default {
       this.favCrypto = this.model.favCryptos;
     }
   },
+
+  methods: {
+    setCurrentCryptoACB(id) {
+      this.model.setCurrentCrypto(id);
+      this.$router.push({path: '/details' + "/" + id})
+    }
+  }
 }
 </script>
 
