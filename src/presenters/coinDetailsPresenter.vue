@@ -28,16 +28,17 @@ export default {
   data() {
     return {
       promiseState: {},
-      cryptoInFavorites: Boolean
-
+      cryptoInFavorites: true
     }
   },
 
   created() {
     if (this.model.currentCrypto) {
       resolvePromise(getCryptoDetails(this.model.currentCrypto), this.promiseState)
+      if (this.model.currentLoggedInUser) {
+        this.cryptoInFavorites = this.model.favCryptos.includes(this.model.currentCrypto)
+      }
     }
-
   },
   methods: {
     addCryptoToFavorites() {

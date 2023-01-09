@@ -11,44 +11,52 @@ class CryptoModel {
         this.currentLoggedInUser = undefined;
         this.currentUser = undefined;
         this.correctLogInInfo = false;
-        this.currentUserUID = {};
         this.favCryptos =[];
     }
 
     async getFavoritesFromFirestore(emailKey) {
-        console.log("Document data:")
         const docRef = doc(db, "favorites", emailKey);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data().crypto);
             this.favCryptos = docSnap.data().crypto;
         } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
         }
     }
 
     saveFavoriteCrypto(cryptoName){
-
-        this.favCryptos.push(cryptoName)
-        setDoc(doc(db, "favorites", this.currentLoggedInUser), {
-            crypto:  this.favCryptos
-        }).then(r => console.log(r));
+        if (!this.favCryptos.includes(cryptoName)) {
+            this.favCryptos.push(cryptoName)
+            setDoc(doc(db, "favorites", this.currentLoggedInUser), {
+                crypto:  this.favCryptos
+            })
+            return true;
+        }
         return false;
     }
 
 
 
-    async removeFavoriteCrypto() {
-        const cryptoRef = doc(db, "favorites", this.currentLoggedInUser);
-        await updateDoc(cryptoRef, {
-            crypto: deleteField()
-        });
-        this.favCryptos.pop()
-        setDoc(doc(db, "favorites", this.currentLoggedInUser), {
-            crypto:  this.favCryptos
-        })
+    removeFavoriteCrypto(cryptoName) {
+        function getIndex(cryptoToRemove) {
+            return cryptoToRemove === cryptoName
+        }
+
+        if (this.favCryptos.includes(cryptoName)) {
+            let indexToRemove = this.favCryptos.findIndex(getIndex)
+            if (indexToRemove === this.favCryptos.length -1) {
+                this.favCryptos.pop()
+            }
+            else {
+                this.favCryptos[indexToRemove] = this.favCryptos.pop()
+            }
+            const cryptoRef = doc(db, "favorites", this.currentLoggedInUser);
+            setDoc(cryptoRef, {
+                crypto:  this.favCryptos
+            })
+            return false;
+        }
         return true;
     }
 
@@ -127,7 +135,7 @@ class CryptoModel {
     }
 
     logout() {
-        this.currentLoggedInUser = false;
+        this.currentLoggedInUser = undefined;
         this.currentUser = {};
     }
     addCryptoToFavorites(cryptoToAdd) {

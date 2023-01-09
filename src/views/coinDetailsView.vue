@@ -27,10 +27,10 @@ export default {
         <div class='coin-container'>
           <div class='content'>
             <div class="big-text">
-              <button v-if="user && cryptoInFavorites" class="buttonAdd" @click="addToFavorites">Add to favorites</button>
-              <button v-if="user && !cryptoInFavorites" class="buttonRemove" @click="removeFromFavorites">Remove from favorites
+              <button v-if="user && !cryptoInFavorites" class="buttonAdd" @click="addToFavorites">Add to favorites</button>
+              <button v-if="user && cryptoInFavorites" class="buttonRemove" @click="removeFromFavorites">Remove from favorites
               </button>
-            <h1>{{ apiData.name }}</h1>
+              <h1>{{ apiData.name }}</h1>
             </div>
           </div>
           <div class='content'>
