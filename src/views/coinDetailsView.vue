@@ -27,6 +27,9 @@ export default {
         <div class='coin-container'>
           <div class='content'>
             <div class="big-text">
+              <button v-if="user && cryptoInFavorites" class="buttonAdd" @click="addToFavorites">Add to favorites</button>
+              <button v-if="user && !cryptoInFavorites" class="buttonRemove" @click="removeFromFavorites">Remove from favorites
+              </button>
             <h1>{{ apiData.name }}</h1>
             </div>
           </div>
@@ -114,15 +117,16 @@ export default {
         </div>
       </div>
     </div>
-    <button v-if="user && cryptoInFavorites" class="butonAdd" @click="addToFavorites">Add to favorites</button>
-    <button v-if="user && !cryptoInFavorites" class="butonRemove" @click="removeFromFavorites">Remove from favorites
-    </button>
   </div>
   <h1 v-else style="color:white">No data</h1>
 
 </template>
 
 <style>
+
+.click-button {
+
+}
 
 .coin-container .content {
   max-width: 740px;
@@ -247,7 +251,8 @@ body {
   margin: 1rem;
 }
 
-.butonRemove {
+.buttonRemove {
+  margin: 10px;
   background-color: #fc5757;
   border-radius: 28px;
   border: 1px solid #fc2626;
@@ -255,23 +260,23 @@ body {
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
-  font-size: 17px;
+  font-size: 16px;
   padding: 16px 27px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #590000;
-  width: 250px;
+  width: 200px;
 }
 
-.butonRemove:hover {
+.buttonRemove:hover {
   background-color: #fa0000;
 }
 
-.butonRemove:active {
+.buttonRemove:active {
   position: relative;
   top: 1px;
 }
 
-.butonAdd {
+.buttonAdd {
   background-color: #44c767;
   border-radius: 28px;
   border: 1px solid #18ab29;
@@ -279,18 +284,18 @@ body {
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
-  font-size: 17px;
+  font-size: 16px;
   padding: 16px 27px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
-  width: 250px;
+  width: 200px;
 }
 
-.butonAdd:hover {
+.buttonAdd:hover {
   background-color: #5cbf2a;
 }
 
-.butonAdd:active {
+.buttonAdd:active {
   position: relative;
   top: 1px;
 }

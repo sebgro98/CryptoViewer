@@ -23,14 +23,15 @@ export default {
   },
   created() {
     this.copy = this.model.currentLoggedInUser
+
   },
   methods: {
     LogInPasswordInput(password) {
       this.logPassword = password;
+
     },
     LogInUsernameInput(username) {
       this.logUsername = username;
-      console.log(username)
     },
     loginToAccount() {
       if (this.logUsername === "" || this.logPassword === "") {

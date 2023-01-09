@@ -7,7 +7,7 @@
       </div>
       <div class="right-user">
         <div class="profile_information">
-          <h3>Favorites Crypto</h3>
+          <h3>Favorite Crypto</h3>
           <h2>{{cryptos}}</h2>
       </div>
       </div>

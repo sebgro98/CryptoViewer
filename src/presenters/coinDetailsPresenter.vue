@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       promiseState: {},
-      cryptoInFavorites: true
+      cryptoInFavorites: Boolean
 
     }
   },
@@ -41,10 +41,10 @@ export default {
   },
   methods: {
     addCryptoToFavorites() {
-      this.cryptoInFavorites = this.model.saveFavoritesCrypto(this.model.currentCrypto)
+      this.cryptoInFavorites = this.model.saveFavoriteCrypto(this.model.currentCrypto)
     },
     removeCryptoFromFavorites() {
-      this.cryptoInFavorites = this.model.removeCryptoToFavorites(this.model.currentCrypto)
+      this.cryptoInFavorites = this.model.removeFavoriteCrypto(this.model.currentCrypto)
     }
   }
 
