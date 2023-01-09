@@ -3,9 +3,7 @@
       @onLogButtonClick="loginToAccount"
       @onPasswordInput="LogInPasswordInput"
       @onUsernameInput="LogInUsernameInput"
-      @goToProfile="goToProfile"
   />
-  <h1 v-else><RouterLink to="profile">Go to profile</RouterLink></h1>
 
 </template>
 
@@ -40,10 +38,8 @@ export default {
       }
       this.model.logIn(this.logUsername, this.logPassword);
       this.model.getFavoritesFromFirestore(this.logUsername);
-    },
-    goToProfile() {
       this.$router.push({path: '/profile'})
-    }
+    },
   }
 }
 </script>

@@ -28,15 +28,16 @@ export default {
   data() {
     return {
       promiseState: {},
-      cryptoInFavorites: true
+      cryptoInFavorites: true,
+
     }
   },
 
-  created() {
+  async created() {
     if (this.model.currentCrypto) {
       resolvePromise(getCryptoDetails(this.model.currentCrypto), this.promiseState)
       if (this.model.currentLoggedInUser) {
-        this.model.getFavoritesFromFirestore(this.model.currentLoggedInUser)
+        await this.model.getFavoritesFromFirestore(this.model.currentLoggedInUser)
         this.cryptoInFavorites = this.model.favCryptos.includes(this.model.currentCrypto)
       }
     }
@@ -49,7 +50,5 @@ export default {
       this.cryptoInFavorites = this.model.removeFavoriteCrypto(this.model.currentCrypto)
     }
   }
-
-
 }
 </script>

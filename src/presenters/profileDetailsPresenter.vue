@@ -1,7 +1,7 @@
 <template>
   <UserInformationView
-      v-if="currentUser"
-      :username="currentUser"
+      v-if="this.model.currentUser"
+      :username="this.model.currentUser"
       :cryptos = "this.model.favCryptos"
       @onCryptoClick="setCurrentCryptoACB"
   />
@@ -14,17 +14,9 @@ export default {
   name: "profileDetailsPresenter",
   components: {UserInformationView},
   props: ["model"],
-  data() {
-    return {
-      userCryptos: undefined,
-      currentUser: undefined,
-    }
-  },
   created() {
     if (this.model.currentUser) {
-      this.currentUser = this.model.currentUser
       this.model.getFavoritesFromFirestore(this.model.currentUser)
-      console.log(this.model.favCryptos)
     }
   },
   methods: {

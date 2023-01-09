@@ -120,7 +120,6 @@ class CryptoModel {
 
     logout() {
         this.currentLoggedInUser = undefined;
-        this.currentUser = {};
     }
 
 }
