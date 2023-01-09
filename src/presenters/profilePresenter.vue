@@ -1,7 +1,7 @@
 <template>
   <UserInformationView
       v-if="currentUser"
-      :username="this.currentUser"
+      :username="currentUser"
       :cryptos = "this.favCrypto"
       @onCryptoClick="setCurrentCryptoACB"
   />

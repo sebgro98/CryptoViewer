@@ -118,34 +118,9 @@ class CryptoModel {
         })
     }
 
-    removeCryptoToFavorites(cryptoToRemove) {
-        function getIndex(crypto) {
-            return crypto === cryptoToRemove
-        }
-        if (Object.values(this.accounts[this.currentLoggedInUser]['cryptos']).includes(cryptoToRemove)) {
-            let indexToRemove = this.accounts[this.currentLoggedInUser]['cryptos'].findIndex(getIndex)
-            if (indexToRemove === this.accounts[this.currentLoggedInUser]['cryptos'].length - 1) {
-                this.accounts[this.currentLoggedInUser]['cryptos'].pop()
-            }
-            else {
-                this.accounts[this.currentLoggedInUser]['cryptos'][indexToRemove] =  this.accounts[this.currentLoggedInUser]['cryptos'].pop()
-            }
-            return false;
-        }
-        return true;
-
-    }
-
     logout() {
         this.currentLoggedInUser = undefined;
         this.currentUser = {};
-    }
-    addCryptoToFavorites(cryptoToAdd) {
-        if (!Object.values(this.accounts[this.currentLoggedInUser]['cryptos']).includes(cryptoToAdd)) {
-            this.accounts[this.currentLoggedInUser]['cryptos'].push(cryptoToAdd)
-            return true;
-        }
-        return false;
     }
 
 }

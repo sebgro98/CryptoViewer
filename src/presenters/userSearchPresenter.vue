@@ -29,7 +29,6 @@ export default {
     },
     setCurrentUser(text) {
       this.model.setCurrentUser(text);
-      console.log(this.model.currentUser)
       this.$router.push({path: '/userProfile'})
     },
   }
