@@ -16,7 +16,8 @@ export default {
   data() {
     return {
       userCryptos: undefined,
-
+      currentUser: String,
+      favCrypto: Array
     }
   },
   created() {
