@@ -2,7 +2,7 @@
   <UserInformationView
       v-if="currentUser"
       :username="this.currentUser"
-      :cryptos = "this.favCrypto"
+      :cryptos = "this.model.favCryptos"
   />
   <h1 v-else>Error 404</h1>
 </template>
@@ -16,15 +16,13 @@ export default {
   data() {
     return {
       userCryptos: undefined,
-
+      currentUser: undefined,
     }
   },
   created() {
     if (this.model.currentLoggedInUser) {
       this.currentUser = this.model.currentLoggedInUser;
-    }
-    if (this.model.favCryptos) {
-      this.favCrypto = this.model.favCryptos;
+      this.model.getFavoritesFromFirestore(this.model.currentLoggedInUser)
     }
   },
 }

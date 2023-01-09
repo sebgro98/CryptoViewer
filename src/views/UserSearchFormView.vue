@@ -12,7 +12,7 @@
     </div>
     <div v-if="Object.keys(this.searchData).length > 0">
       <tr v-for="(account) in searchData">
-        <div v-on:click="updateCurrentUser(account.id)" class="userContent">
+        <div v-on:click="updateCurrentUser(account.email)" class="userContent">
           <h1 id="emailText"> {{account.email}}</h1>
         </div>
       </tr>
@@ -32,8 +32,8 @@ export default {
     updateSearchQuery(evt) {
       this.$emit("onInputChange", evt.target.value)
     },
-    updateCurrentUser(username) {
-      this.$emit("onUserClick", username)
+    updateCurrentUser(email) {
+      this.$emit("onUserClick", email)
     },
   },
 }

@@ -18,10 +18,10 @@ export default {
       searchData: {},
     }
   },
+
   created() {
     this.model.getAccountList()
     this.searchData = this.model.accounts;
-    console.log(this.searchData)
   },
   methods: {
     setSearchQuery(text) {
@@ -29,7 +29,8 @@ export default {
     },
     setCurrentUser(text) {
       this.model.setCurrentUser(text);
-      this.$router.push({path: '/profile'})
+      console.log(this.model.currentUser)
+      this.$router.push({path: '/userProfile'})
     },
   }
 

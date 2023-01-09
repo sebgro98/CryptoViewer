@@ -2,7 +2,7 @@ import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import {signInWithEmailAndPassword} from "firebase/auth";
 import auth from "@/firebaseModel.js";
 import { db } from "./firebaseModel"
-import { doc, setDoc, getDocs, collection, getDoc, updateDoc, deleteField} from "firebase/firestore";
+import { doc, setDoc, getDocs, collection, getDoc} from "firebase/firestore";
 
 class CryptoModel {
     constructor() {
@@ -20,8 +20,7 @@ class CryptoModel {
 
         if (docSnap.exists()) {
             this.favCryptos = docSnap.data().crypto;
-        } else {
-            // doc.data() will be undefined in this case
+            console.log("yes")
         }
     }
 
@@ -75,13 +74,16 @@ class CryptoModel {
         this.currentCrypto = id;
     }
 
-    setCurrentUser(uid) {
-        this.currentUser = uid;
+    setCurrentUser(email) {
+        this.currentUser = email;
     }
 
     setAccountDetails(email, password){
         async function addAccountToFirestore(data) {
             await setDoc(doc(db, "Users", data.user.uid), {email: data.user.email})
+            await setDoc(doc(db, "favorites", email), {
+                crypto: []
+            })
         }
 
         createUserWithEmailAndPassword(getAuth(), email, password).then(addAccountToFirestore).catch((error) => {

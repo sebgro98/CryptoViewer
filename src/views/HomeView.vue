@@ -53,7 +53,7 @@ export default {
     clone: Object,
     textSearch: String,
   },
-
+  emits: ["search-crypto", "onCryptoClick"],
   methods: {
     searchCoin(e) {
       this.$emit("search-crypto", e.target.value);

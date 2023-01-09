@@ -20,6 +20,15 @@ const router = createRouter({
     },
 
     {
+      path: '/userProfile',
+      name: 'userProfile',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../presenters/profileDetailsPresenter.vue')
+    },
+
+    {
       path: '/findUsers',
       name: 'CryptoSearchFormView',
       component: () => import('../presenters/userSearchPresenter.vue')
