@@ -2,7 +2,7 @@ import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import {signInWithEmailAndPassword} from "firebase/auth";
 import auth from "@/firebaseModel.js";
 import { db } from "./firebaseModel"
-import { doc, setDoc, getDocs, collection, getDoc} from "firebase/firestore";
+import { doc, setDoc, getDocs, collection, getDoc, updateDoc, deleteField} from "firebase/firestore";
 
 class CryptoModel {
     constructor() {
@@ -17,7 +17,7 @@ class CryptoModel {
 
     async getFavoritesFromFirestore(emailKey) {
         console.log("Document data:")
-        const docRef = doc(db, "favoriter", emailKey);
+        const docRef = doc(db, "favorites", emailKey);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
@@ -29,11 +29,26 @@ class CryptoModel {
         }
     }
 
-    saveFavoritesCrypto(cryptoName){
+    saveFavoriteCrypto(cryptoName){
+
         this.favCryptos.push(cryptoName)
-        setDoc(doc(db, "favoriter", this.currentLoggedInUser), {
+        setDoc(doc(db, "favorites", this.currentLoggedInUser), {
             crypto:  this.favCryptos
         }).then(r => console.log(r));
+        return false;
+    }
+
+
+
+    async removeFavoriteCrypto() {
+        const cryptoRef = doc(db, "favorites", this.currentLoggedInUser);
+        await updateDoc(cryptoRef, {
+            crypto: deleteField()
+        });
+        this.favCryptos.pop()
+        setDoc(doc(db, "favorites", this.currentLoggedInUser), {
+            crypto:  this.favCryptos
+        })
         return true;
     }
 
