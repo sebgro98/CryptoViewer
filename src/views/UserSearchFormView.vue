@@ -55,9 +55,10 @@ export default {
 
 .userContent:hover {
   background-color: #4e4f57;
+  cursor: pointer
 }
 .userContent:hover h1 {
-  color: #ffc400
+  color: #ffc400;
 }
 
 .user-search-app {

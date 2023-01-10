@@ -16,5 +16,6 @@ export default {
       this.model.logout();
     }
   }
+
 }
 </script>
