@@ -18,11 +18,13 @@ export default {
     }
   }
 }
+
 </script>
+
 
 <template>
   <div v-if="apiData" class="user-cryptos">
-    <div class="big-body">
+    <div>
       <div>
         <div class='coin-container'>
           <div class='content'>
@@ -37,23 +39,16 @@ export default {
             <div class='rank'>
               <span class='rank-btn'>Rank # {{ apiData.market_cap_rank }}</span>
             </div>
-            <div class='info'>
-              <div class='coin-heading'>
-                <img :src="apiData.image.small" alt=''/>
-                <p>{{ apiData.name }}</p>
-                {{ apiData.symbol.toUpperCase() }}/USD
 
-              </div>
-              <div class='coin-price'>
-                <h1>${{ apiData.market_data.current_price.usd.toLocaleString() }}</h1>
-              </div>
-            </div>
+            <div><coingecko-coin-price-chart-widget v-bind:coin-id="[apiData.id]" currency="usd" height="300" locale="en" background-color="#26272B"></coingecko-coin-price-chart-widget></div>
           </div>
 
+
+
           <div class='content'>
-            <table>
+            <table class="table-table">
               <thead>
-              <tr class="tableHead">
+              <tr class="table-head">
                 <th>1h</th>
                 <th>24h</th>
                 <th>7d</th>
@@ -62,9 +57,10 @@ export default {
                 <th>1yr</th>
               </tr>
               </thead>
+
               <tbody>
               <tr
-
+                  class="table-data"
               >
                 <td><p :class="
                   apiData.market_data.price_change_percentage_1h_in_currency.usd.toFixed(1) > 0 ? 'green' : 'red'">
@@ -93,6 +89,7 @@ export default {
                 <div class='row'>
                   <h4>24 Hour High</h4>
                   <p>${{ apiData.market_data.high_24h.usd.toLocaleString() }}</p></div>
+
               </div>
               <div class='right'>
                 <div class='row'>
@@ -107,6 +104,7 @@ export default {
               </div>
             </div>
           </div>
+
           <div class='content'>
             <div class='about'>
               <h3>About</h3>
@@ -117,16 +115,13 @@ export default {
         </div>
       </div>
     </div>
+
   </div>
   <h1 v-else style="color:white">No data</h1>
 
 </template>
 
 <style>
-
-.click-button {
-
-}
 
 .coin-container .content {
   max-width: 740px;
@@ -151,37 +146,20 @@ export default {
   padding: .2rem;
 }
 
-.info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.info .coin-heading {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-}
-
-.info .coin-price {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .info p {
   padding-right: 1rem;
 }
 
-table {
+.table-table table {
   margin: .5rem 0;
 }
 
-td, th {
+.table-data td, .table-head th {
   padding: 8px;
   text-align: center;
 }
 
-.tableHead > th {
+.table-head th {
   background-color: #333;
 }
 
@@ -205,6 +183,7 @@ td, th {
 }
 
 .about h3 {
+  text-align: center;
   margin: 1rem 0;
 }
 
@@ -232,7 +211,11 @@ td, th {
   }
 }
 
-
+.user-cryptos * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   margin: 0;

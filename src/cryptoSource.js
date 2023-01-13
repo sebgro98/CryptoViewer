@@ -41,7 +41,6 @@ const getCryptoChart = async (endpoint) => {
 
 }
 
-
 function getCryptoDetails(endpoint) {
     const params1 = "https://api.coingecko.com/api/v3/coins/"
     const params2 = "?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=true"

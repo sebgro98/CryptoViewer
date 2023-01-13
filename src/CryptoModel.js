@@ -20,7 +20,6 @@ class CryptoModel {
 
         if (docSnap.exists()) {
             this.favCryptos = docSnap.data().crypto;
-            console.log("yes")
         }
     }
 

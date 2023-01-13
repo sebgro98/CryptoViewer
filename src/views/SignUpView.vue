@@ -49,14 +49,13 @@ body {
   color: white;
   background: #212121;
   border-radius: 10px;
-  margin: auto;
   width: 30%;
-  margin-top: 60px;
+  margin: 60px auto auto;
 }
 h2{
   font-size: 30px;
 }
-/* CSS */
+
 .login_button {
   background-color: white;
   border: 2px solid #4aafff;
@@ -73,6 +72,7 @@ h2{
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   width: 50%;
 }
+
 .login_button:hover {
   color: #fff;
   background-color: #1A1A1A;

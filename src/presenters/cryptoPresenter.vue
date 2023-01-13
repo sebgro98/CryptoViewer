@@ -50,7 +50,6 @@ export default {
     searchCrypto(text) {
       this.textSearch = text;
       this.copy = this.initial.filter((crypto) => {
-        // Added another condition with crypto.symbol to search by symbol as well ;)
         return (
             crypto.name.toLowerCase().includes(this.textSearch.toLowerCase()) ||
             crypto.symbol.toLowerCase().includes(this.textSearch.toLowerCase())

@@ -138,10 +138,6 @@ body {
   width: 240px;
 }
 
-.crypto-percent {
-  width: 80px;
-}
-
 .red {
   color: #f00606;
 }
@@ -168,11 +164,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.crypto-text {
-  margin-bottom: 32px;
-  text-align: center;
 }
 
 .crypto-input {
