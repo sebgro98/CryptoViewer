@@ -13,6 +13,11 @@ export default {
   name: "profilePresenter",
   components: {UserInformationView},
   props: ["model"],
+  created() {
+    if (this.model.currentLoggedInUser) {
+      this.model.getFavoritesFromFirestore(this.model.currentLoggedInUser)
+    }
+  },
 
   methods: {
     setCurrentCryptoACB(id) {
