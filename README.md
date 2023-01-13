@@ -1,6 +1,9 @@
 # CryptoViewer
 The User Group we are targeting are people who want to get into the crypto market and our website is going	to be very beginner friendly. With just one click you can view the current market of cryptos with many crypto currencies. Our website is very user friendly and gives you all the information needed about cryptos like the current price, market cap etc. 
 
+#New updates
+Resubmisson of Assignment. The new things that we have added are that a user can save their favorite cryptocurrencies and the data will be persistet. The user can see their favorites crypto in their profile and the favorite cryptos are clickeble so when clicked you can view the details about the crypto. 
+We have a new menu tab findUser where you can see the other user and their favorite cryptos. 
 
 This template should help get you started developing with Vue 3 in Vite.
 # what we have done
